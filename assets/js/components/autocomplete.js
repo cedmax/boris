@@ -9,6 +9,7 @@ export default class BorisAutoComplete extends React.Component {
       <AutoComplete
         hintText={`Prova con ${placeHolder}`}
         dataSource={this.props.data}
+        filter={AutoComplete.caseInsensitiveFilter}
         onNewRequest={this.props.onSelect} />
     );
   }
