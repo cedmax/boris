@@ -8,6 +8,7 @@ body {
 	height:100%;
   background: url(/img/bk.jpg) 50% calc(50% + 70px) no-repeat;
   background-size: cover;
+	overflow: hidden;
 }
 
 .videoWrapper {
@@ -28,4 +29,9 @@ body {
 
 pre {
 	display: inline-block;
+	width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
 }
