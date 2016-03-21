@@ -2,7 +2,6 @@ import React from 'react';
 import Paper from 'material-ui/lib/paper';
 
 const style = {
-  margin: 20,
   padding: 20,
   textAlign: 'center',
   display: 'block',
