@@ -11,16 +11,16 @@
 		<div id="app">{{{DOM}}}</div>
 		<script id="data" type="application/json">{{{json}}}</script>
 
+		<script src="https://jspm.io/system@0.19.js"></script>
+
 		{{#dev}}
-			<script src="https://jspm.io/system@0.19.js"></script>
 			<script src="config.js"></script>
-			<script>
-				System.import('js/main');
-			</script>
 		{{/dev}}
 		{{^dev}}
-			<script src="https://jspm.io/system@0.19.js"></script>
 			<script src="js/bundle.js"></script>
 		{{/dev}}
+		<script>
+			System.import('js/main');
+		</script>
 	</body>
 </html>
