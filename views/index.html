@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Boris, i video</title>
+		<link rel="stylesheet" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<meta property="og:image" content="http://smartcooki.es/images/{{image}}.jpg">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div id="app">{{{DOM}}}</div>
+		<script id="data" type="application/json">{{{json}}}</script>
+
+		{{#dev}}
+			<script src="https://jspm.io/system@0.19.js"></script>
+			<script src="config.js"></script>
+			<script>
+				System.import('js/main');
+			</script>
+		{{/dev}}
+		{{^dev}}
+			<script src="js/bundle.js"></script>
+		{{/dev}}
+	</body>
+</html>

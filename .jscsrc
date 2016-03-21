@@ -1,0 +1,9 @@
+{
+	"preset": "mdcs",
+	"esnext": true,
+	"requirePaddingNewlinesInBlocks": null,
+	"requireLineFeedAtFileEnd": null,
+	"requireSpacesInsideParentheses": "allButNested",
+	"disallowKeywords": null,
+	"validateIndentation": 2
+}
