@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "jspm install",
-    "bundle": "jspm bundle-sfx -m js/main assets/js/bundle.js",
+    "bundle": "jsonlint boris.json --quiet && jspm bundle-sfx -m js/main assets/js/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,7 +20,8 @@
   },
   "devDependencies": {
     "babel-jscs": "^2.0.5",
-    "jscs": "^2.11.0"
+    "jscs": "^2.11.0",
+    "jsonlint": "^1.6.2"
   },
   "jspm": {
     "directories": {
