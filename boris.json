@@ -1,20 +1,73 @@
 {
-	"Dai dai dai!": "https://www.youtube.com/watch?v=OonMoTN4sH8",
-	"Sticazzi": "https://www.youtube.com/watch?v=b-OpI6u7G7U",
-	"Crucchi demmerda": "https://www.youtube.com/watch?v=k8C2P5VZY-o",
-	"Stocazzo": "https://www.youtube.com/watch?v=PLS-mBeeN8U",
-	"La qualità c'ha rotto er cazzo": "https://www.youtube.com/watch?v=96x2pjWoTCY",
-	"A cazzo di cane (1)": "https://www.youtube.com/watch?v=rqHDvEjdPrM",
-	"A cazzo di cane (2)": "https://www.youtube.com/watch?v=2fAfsZZde3U",
-	"Nun me va de fa' n'cazzo": "https://www.youtube.com/watch?v=nuUhvniXqXk",
-	"Cagna maledetta":"https://www.youtube.com/watch?v=MJ8VpnprHaY",
-	"Io non c'ho capito un cazzo": "https://www.youtube.com/watch?v=bCBGzLnRKec",
-	"Bucio de culo": "https://www.youtube.com/watch?v=0bP5wEcucZA",
-	"Voglio che smarmelli (Apri tutto)": "https://www.youtube.com/watch?v=uoOaqNqXRC8",
-	"Cane senza appello": "https://www.youtube.com/watch?v=td5e0XLgFdw",
-	"Faccia basita: F4": "https://www.youtube.com/watch?v=XyuP2azMlFA",
-	"Toscani": "https://www.youtube.com/watch?v=2OaxjbYtuQU",
-	"A fija de Mazinga": "https://www.youtube.com/watch?v=XDDqJvsWMds",
-	"Mito, Genio": "https://www.youtube.com/watch?v=hIsdTpJaBJk",
-	"Fregne": "https://www.youtube.com/watch?v=x351XEdYpkg"
+	"dai-dai-dai": {
+		"title": "Dai dai dai!",
+		"url": "https://www.youtube.com/watch?v=OonMoTN4sH8"
+	},
+	"sticazzi": {
+		"title": "Sticazzi",
+		"url": "https://www.youtube.com/watch?v=b-OpI6u7G7U"
+	},
+	"crucchi-demmerda": {
+		"title": "Crucchi demmerda",
+		"url": "https://www.youtube.com/watch?v=k8C2P5VZY-o"
+	},
+	"stocazzo": {
+		"title": "Stocazzo",
+		"url": "https://www.youtube.com/watch?v=PLS-mBeeN8U"
+	},
+	"qualita": {
+		"title": "La qualità c'ha rotto er cazzo",
+		"url": "https://www.youtube.com/watch?v=96x2pjWoTCY"
+	},
+	"a-cazzo-di-cane-[1]": {
+		"title": "A cazzo di cane (1)",
+		"url": "https://www.youtube.com/watch?v=rqHDvEjdPrM"
+	},
+	"a-cazzo-di-cane-[2]": {
+		"title": "A cazzo di cane (2)",
+		"url": "https://www.youtube.com/watch?v=2fAfsZZde3U"
+	},
+	"voja-de-fa-n-cazzo": {
+		"title": "Nun me va de fa' n'cazzo",
+		"url": "https://www.youtube.com/watch?v=nuUhvniXqXk"
+	},
+	"cagna-maledetta": {
+		"title": "Cagna maledetta", "url": "https://www.youtube.com/watch?v=MJ8VpnprHaY"
+	},
+	"capito-un-cazzo": {
+		"title": "Io non c'ho capito un cazzo",
+		"url": "https://www.youtube.com/watch?v=bCBGzLnRKec"
+	},
+	"bucio-de-culo": {
+		"title": "Bucio de culo",
+		"url": "https://www.youtube.com/watch?v=0bP5wEcucZA"
+	},
+	"smarmelli": {
+		"title": "Voglio che smarmelli (Apri tutto)",
+		"url": "https://www.youtube.com/watch?v=uoOaqNqXRC8"
+	},
+	"cane": {
+		"title": "Cane senza appello",
+		"url": "https://www.youtube.com/watch?v=td5e0XLgFdw"
+	},
+	"f4": {
+		"title": "Faccia basita: F4",
+		"url": "https://www.youtube.com/watch?v=XyuP2azMlFA"
+	},
+	"toscani": {
+		"title": "Toscani",
+		"url": "https://www.youtube.com/watch?v=2OaxjbYtuQU"
+	},
+	"fija-de-mazinga": {
+		"title": "A fija de Mazinga",
+		"url": "https://www.youtube.com/watch?v=XDDqJvsWMds"
+	},
+	"mito": {
+		"title": "Mito, Genio",
+		"url": "https://www.youtube.com/watch?v=hIsdTpJaBJk"
+	},
+	"fregne": {
+		"title": "Fregne",
+		"url": "https://www.youtube.com/watch?v=x351XEdYpkg}"
+	}
 }
