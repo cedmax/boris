@@ -24,6 +24,7 @@ System.config({
     "material-ui": "npm:material-ui@0.15.0-alpha.2",
     "react": "npm:react@0.14.7",
     "react-dom": "npm:react-dom@0.14.7",
+    "react-router": "npm:react-router@2.0.1",
     "react-tap-event-plugin": "github:zilverline/react-tap-event-plugin@0.2.2",
     "react-toolbox": "github:react-toolbox/react-toolbox@0.14.2",
     "github:floatdrop/plugin-jsx@1.2.1": {
@@ -333,6 +334,13 @@ System.config({
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
     },
+    "npm:history@2.0.1": {
+      "deep-equal": "npm:deep-equal@1.0.1",
+      "invariant": "npm:invariant@2.2.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "query-string": "npm:query-string@3.0.3",
+      "warning": "npm:warning@2.1.0"
+    },
     "npm:iconv-lite@0.4.13": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -351,6 +359,10 @@ System.config({
     "npm:inline-style-prefixer@1.0.2": {
       "bowser": "npm:bowser@1.0.0",
       "inline-style-prefix-all": "npm:inline-style-prefix-all@1.0.3"
+    },
+    "npm:invariant@2.2.1": {
+      "loose-envify": "npm:loose-envify@1.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:jstransform@10.1.0": {
       "base62": "npm:base62@0.1.1",
@@ -472,6 +484,9 @@ System.config({
     "npm:q@1.4.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:query-string@3.0.3": {
+      "strict-uri-encode": "npm:strict-uri-encode@1.1.0"
+    },
     "npm:randombytes@2.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
@@ -491,6 +506,12 @@ System.config({
     },
     "npm:react-dom@0.14.7": {
       "react": "npm:react@0.14.7"
+    },
+    "npm:react-router@2.0.1": {
+      "history": "npm:history@2.0.1",
+      "invariant": "npm:invariant@2.2.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "warning": "npm:warning@2.1.0"
     },
     "npm:react-tap-event-plugin@0.2.2": {
       "fbjs": "npm:fbjs@0.2.1",
