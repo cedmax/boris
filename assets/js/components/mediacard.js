@@ -4,8 +4,7 @@ import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
-import CardText from 'material-ui/lib/card/card-text';
-import CopyButton from 'js/components/copy-button';
+import CopyButton from 'js/components/buttons/copy';
 
 export default class VideoCard extends React.Component {
   render() {

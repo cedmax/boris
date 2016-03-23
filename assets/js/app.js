@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Title from './components/title';
 import Container from 'js/components/container';
 import AutoComplete from 'js/components/autocomplete';
-import VideoCard from 'js/components/videocard';
+import MediaCard from 'js/components/mediacard';
 
 export default class App extends React.Component {
   showVideo( selected ) {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
             }.bind(this))}
           onSelect={this.showVideo.bind( this )} />
         </Container>
-        <VideoCard videoUrl={selectedUrl} onCopyReady={this.props.onCopyReady} />
+        <MediaCard videoUrl={selectedUrl} onCopyReady={this.props.onCopyReady} />
       </div>
     );
   }
