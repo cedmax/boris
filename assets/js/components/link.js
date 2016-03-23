@@ -6,11 +6,11 @@ export default class Link extends React.Component {
     const style = {
       'fontFamily': 'monospace',
       'display': "inline-block",
-    	'width': "80%",
-    	'whiteSpace': "nowrap",
-    	'overflow': "hidden",
-    	'textOverflow': "ellipsis",
-    	'verticalAlign': "middle",
+      'width': "80%",
+      'whiteSpace': "nowrap",
+      'overflow': "hidden",
+      'textOverflow': "ellipsis",
+      'verticalAlign': "middle"
     }
 
     return (
