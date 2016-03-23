@@ -13,7 +13,7 @@ app.use( require( 'express-autoprefixer' )( { browsers: 'last 2 versions', casca
 var dataJSon = JSON.stringify( data );
 
 function route( req, res ) {
-  global.navigator = { userAgent: req.headers['user-agent'] };
+  global.navigator = { userAgent: req.headers[ 'user-agent' ] };
   res.locals.json = dataJSon;
   res.locals.dev = ( settings.env === 'dev' );
 
