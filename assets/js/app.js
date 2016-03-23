@@ -27,6 +27,7 @@ export default class App extends React.Component {
         <Title title="Boris" />
         <Container>
           <AutoComplete
+            id="BorisText"
             value={selectedTitle}
             data={Object.keys( this.props.data ).map(function(key){
               return this.props.data[key].title;
