@@ -11,22 +11,22 @@ import Link from 'js/components/link';
 import Video from 'js/components/video';
 
 export default class MediaCard extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor( props ) {
+    super( props );
     this.state = {
       gif: props.forceGif
     }
-    this.toggleGif = this.toggleGif.bind(this);
+    this.toggleGif = this.toggleGif.bind( this );
   }
 
   toggleGif() {
-    this.setState({
-      gif: !this.state.gif
-    });
+    this.setState( {
+      gif: ! this.state.gif
+    } );
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    if (nextProps.title !== this.props.title){
+  shouldComponentUpdate( nextProps, nextState ) {
+    if ( nextProps.title !== this.props.title ) {
       nextState.gif = nextProps.forceGif;
     }
     return true;
@@ -43,17 +43,17 @@ export default class MediaCard extends React.Component {
 
     let alternateButton;
     let url = this.props.videoUrl;
-    let media = (<Video videoUrl={url} />);
+    let media = ( <Video videoUrl={url} /> );
 
     const isGifEnabled = this.props.gifUrl;
     const isGifVisible = this.state.gif;
 
-    if (isGifEnabled && !isGifVisible){
+    if ( isGifEnabled && ! isGifVisible ) {
       alternateButton = (
         <GifButton
           onClick={this.toggleGif} />
       );
-    } else if (isGifVisible){
+    } else if ( isGifVisible ) {
       url = this.props.gifUrl;
       alternateButton = (
         <VideoButton
