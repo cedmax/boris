@@ -16,6 +16,7 @@ class Main extends React.Component {
         navigateTo={browserHistory.push}
         data={data}
         selected={this.props.params.selected}
+        format={this.props.params.format}
         onCopyReady={function( selector ) {
           new ClipBoard( selector );
         }} />
@@ -27,6 +28,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
       <Route path="/:selected" component={Main}/>
+      <Route path="/:selected/:format" component={Main}/>
     </Route>
   </Router>
 ), document.getElementById( 'app' ));

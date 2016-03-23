@@ -6,21 +6,24 @@ import AutoComplete from 'js/components/autocomplete';
 import MediaCard from 'js/components/mediacard';
 
 export default class App extends React.Component {
+
   showVideo( selected ) {
     var keys = Object.keys( this.props.data );
     var sel = keys.filter(function(key){
       return this.props.data[key].title === selected
     }.bind(this))
     if ( sel.length ) {
-      this.props.navigateTo(sel[0]);
+      this.props.navigateTo('/'+sel[0]);
     }
   }
 
   render() {
-    let selectedTitle, selectedUrl;
+    let selectedTitle, selectedUrl, gifUrl, forceGif;
     if (this.props.selected){
       selectedTitle = this.props.data[this.props.selected].title;
       selectedUrl = this.props.data[this.props.selected].url;
+      gifUrl = this.props.data[this.props.selected].gif;
+      forceGif = (this.props.format==='gif')
     }
     return (
       <div>
@@ -34,7 +37,13 @@ export default class App extends React.Component {
             }.bind(this))}
           onSelect={this.showVideo.bind( this )} />
         </Container>
-        <MediaCard videoUrl={selectedUrl} onCopyReady={this.props.onCopyReady} />
+        <MediaCard
+          title={selectedTitle}
+          gifUrl={gifUrl}
+          videoUrl={selectedUrl}
+          onCopyReady={this.props.onCopyReady}
+          forceGif={forceGif}
+        />
       </div>
     );
   }
