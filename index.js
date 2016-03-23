@@ -18,17 +18,21 @@ app.use( require( 'express-autoprefixer' )( { browsers: 'last 2 versions', casca
 
 var dataJSon = JSON.stringify( data );
 
-
 jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
-  var html = ReactDOMServer.renderToString( App( {
-    data: data,
-    onCopyReady: function() {}
-  } ));
+
 
   function route( req, res ) {
+    global.navigator = { userAgent: req.headers['user-agent'] };
     res.locals.json = dataJSon;
     res.locals.dev = ( settings.env === 'dev' );
+
+    var html = ReactDOMServer.renderToString( App( {
+      data: data,
+      onCopyReady: function() {},
+      selected: req.params.pattern
+    } ));
+
     res.locals.DOM = html;
 
     res.render( 'index' );

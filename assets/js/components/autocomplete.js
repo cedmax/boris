@@ -7,6 +7,7 @@ export default class BorisAutoComplete extends React.Component {
     var placeHolder = this.props.data[ 0 ];
     return (
       <AutoComplete
+        id={this.props.id}
         hintText={this.props.value?this.props.value:`Prova con ${placeHolder}`}
         dataSource={this.props.data}
         filter={AutoComplete.caseInsensitiveFilter}
