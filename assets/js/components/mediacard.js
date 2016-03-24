@@ -33,10 +33,9 @@ export default class MediaCard extends React.Component {
   }
 
   render() {
-    if (!this.props.videoUrl){
-      return (<div />);
+    if ( ! this.props.videoUrl ) {
+      return ( <div /> );
     }
-
 
     let styles = {
       position: "absolute",

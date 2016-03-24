@@ -12,11 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
+    "express-autoprefixer": "^4.0.3",
     "hogan-express": "^0.5.2",
     "jspm": "^0.16.31",
+    "marked": "^0.3.5",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "express-autoprefixer": "^4.0.3"
+    "react-dom": "^0.14.7"
   },
   "devDependencies": {
     "babel-jscs": "^2.0.5",
