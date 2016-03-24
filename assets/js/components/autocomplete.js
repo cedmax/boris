@@ -8,7 +8,7 @@ export default class BorisAutoComplete extends React.Component {
     return (
       <div style={{
           minWidth:'250px',
-          width: '50%',
+          width: '40%',
           margin: 'auto'
       }}>
         <AutoComplete
