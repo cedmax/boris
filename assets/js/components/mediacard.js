@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from 'material-ui/lib/card/card';
-import CardActions from 'material-ui/lib/card/card-actions';
-import CardHeader from 'material-ui/lib/card/card-header';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 import CopyButton from 'js/components/buttons/copy';
@@ -15,7 +13,7 @@ export default class MediaCard extends React.Component {
     super( props );
     this.state = {
       gif: props.forceGif
-    }
+    };
     this.toggleGif = this.toggleGif.bind( this );
   }
 
@@ -38,12 +36,12 @@ export default class MediaCard extends React.Component {
     }
 
     let styles = {
-      position: "absolute",
+      position: 'absolute',
       top: 'calc(50% + 70px)',
       left: '50%',
-      transform: "translate3D(-50%,-50%,0)",
+      transform: 'translate3D(-50%,-50%,0)',
       width: '80vmin'
-    }
+    };
 
     let alternateButton;
     let url = this.props.videoUrl;
@@ -65,7 +63,7 @@ export default class MediaCard extends React.Component {
       );
       media = (
         <img title={this.props.title} src={url} />
-      )
+      );
     }
 
     let subtitle = (
@@ -91,4 +89,4 @@ export default class MediaCard extends React.Component {
       </Card>
     );
   }
-};
+}

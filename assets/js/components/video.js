@@ -31,4 +31,4 @@ export default class VideoCard extends React.Component {
       </div>
     );
   }
-};
+}

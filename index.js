@@ -46,5 +46,5 @@ jspm.import( 'js/app' ).then( function( App ) {
   app.get( '/about', route );
   app.get( '/:pattern?', route );
   app.get( '/:pattern/:format?', route );
-  var server = app.listen( settings.port );
+  app.listen( settings.port );
 } );

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import AutoComplete from 'material-ui/lib/auto-complete';
 
 export default class BorisAutoComplete extends React.Component {
@@ -7,9 +6,9 @@ export default class BorisAutoComplete extends React.Component {
     var placeHolder = this.props.data[ 0 ];
     return (
       <div style={{
-          minWidth:'250px',
-          width: '40%',
-          margin: 'auto'
+        minWidth:'250px',
+        width: '40%',
+        margin: 'auto'
       }}>
         <AutoComplete
           fullWidth={true}

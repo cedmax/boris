@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "jspm install",
-    "bundle": "jsonlint boris.json --quiet && jspm bundle-sfx -m js/main assets/js/bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "jspm bundle-sfx -m js/main assets/bundle.js",
+    "test": "jsonlint boris.json --quiet && eslint ./*.js assets/js"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +20,10 @@
     "react-dom": "^0.14.7"
   },
   "devDependencies": {
+    "babel-eslint": "^5.0.0",
     "babel-jscs": "^2.0.5",
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^2.7.1",
     "jscs": "^2.11.0",
     "jsonlint": "^1.6.2"
   },

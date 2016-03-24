@@ -10,7 +10,7 @@ export default class Nav extends React.Component {
     super( props );
     this.state = {
       open: false
-    }
+    };
     this.handleToggle = this.handleToggle.bind( this );
   }
 
@@ -42,4 +42,4 @@ export default class Nav extends React.Component {
       </div>
     );
   }
-};
+}
