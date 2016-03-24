@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Container from 'js/components/container';
 import AutoComplete from 'js/components/autocomplete';
 import MediaCard from 'js/components/mediacard';
@@ -16,7 +15,7 @@ export default class App extends React.Component {
 
   showVideo( selected ) {
     var keys = Object.keys( this.data );
-    var sel = keys.filter( ( key ) => this.data[ key ].title === selected )
+    var sel = keys.filter( ( key ) => this.data[ key ].title === selected );
     if ( sel.length ) {
       this.props.navigateTo( '/' + sel[ 0 ] );
     }
@@ -36,7 +35,7 @@ export default class App extends React.Component {
         gif: gifUrl
       } = this.data[ selected ];
 
-      forceGif = ( this.props.format === 'gif' )
+      forceGif = ( this.props.format === 'gif' );
     }
 
     return (
@@ -61,4 +60,4 @@ export default class App extends React.Component {
       </div>
     );
   }
-};
+}

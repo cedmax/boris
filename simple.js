@@ -26,4 +26,4 @@ function route( req, res ) {
 
 app.get( '/:pattern?', route );
 app.get( '/:pattern/gif', route );
-var server = app.listen( settings.port );
+app.listen( settings.port );

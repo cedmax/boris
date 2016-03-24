@@ -8,13 +8,12 @@ export default class GifButton extends React.Component {
       <IconButton
         onClick={this.props.onClick}
         style={{
-          verticalAlign: "middle",
-          display: "inline-block",
+          verticalAlign: 'middle',
+          display: 'inline-block'
         }}
-        tooltip="Show a gif instead"
-        >
+        tooltip='Show a gif instead'>
         <Gif />
       </IconButton>
     );
   }
-};
+}

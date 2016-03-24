@@ -5,13 +5,13 @@ export default class Link extends React.Component {
     const url = this.props.url;
     const style = {
       'fontFamily': 'monospace',
-      'display': "inline-block",
-      'width': "80%",
-      'whiteSpace': "nowrap",
-      'overflow': "hidden",
-      'textOverflow': "ellipsis",
-      'verticalAlign': "middle"
-    }
+      'display': 'inline-block',
+      'width': '80%',
+      'whiteSpace': 'nowrap',
+      'overflow': 'hidden',
+      'textOverflow': 'ellipsis',
+      'verticalAlign': 'middle'
+    };
 
     return (
       <a style={style} href={url}>
@@ -19,4 +19,4 @@ export default class Link extends React.Component {
       </a>
     );
   }
-};
+}
