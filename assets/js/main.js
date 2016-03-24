@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from 'js/app';
 import ClipBoard from 'clipboard';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 injectTapEventPlugin();
 
@@ -19,14 +19,17 @@ class Main extends React.Component {
         format={this.props.params.format}
         onCopyReady={function( selector ) {
           new ClipBoard( selector );
-        }} />
+        }}
+        staticContent={document.getElementById( 'about' ).innerHTML}
+        />
     );
   }
 }
 
 ReactDOM.render((
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+    <Route path="/" >
+      <IndexRoute component={Main} />
       <Route path="/:selected" component={Main}/>
       <Route path="/:selected/:format" component={Main}/>
     </Route>

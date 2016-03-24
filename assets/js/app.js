@@ -1,41 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Title from './components/title';
 import Container from 'js/components/container';
 import AutoComplete from 'js/components/autocomplete';
 import MediaCard from 'js/components/mediacard';
+import Nav from 'js/components/nav';
 
 export default class App extends React.Component {
+  constructor( props ) {
+    super( props );
+    this.data = props.data;
+
+    this.onMenuSelection = this.onMenuSelection.bind( this );
+    this.showVideo = this.showVideo.bind( this );
+  }
 
   showVideo( selected ) {
-    var keys = Object.keys( this.props.data );
-    var sel = keys.filter( function( key ) {
-      return this.props.data[ key ].title === selected
-    }.bind( this ))
+    var keys = Object.keys( this.data );
+    var sel = keys.filter( ( key ) => this.data[ key ].title === selected )
     if ( sel.length ) {
       this.props.navigateTo( '/' + sel[ 0 ] );
     }
   }
 
+  onMenuSelection( menuItem ) {
+    this.props.navigateTo( menuItem );
+  }
+
   render() {
-    let selectedTitle, selectedUrl, gifUrl, forceGif;
-    if ( this.props.selected ) {
-      selectedTitle = this.props.data[ this.props.selected ].title;
-      selectedUrl = this.props.data[ this.props.selected ].url;
-      gifUrl = this.props.data[ this.props.selected ].gif;
+    let forceGif, selected = this.props.selected;
+
+    if ( selected ) {
+      var {
+        title: selectedTitle,
+        url: selectedUrl,
+        gif: gifUrl
+      } = this.data[ selected ];
+
       forceGif = ( this.props.format === 'gif' )
     }
+
     return (
       <div>
-        <Title title="Boris" />
+        <Nav title="Boris"
+          staticContent={this.props.staticContent}
+          onSelect={this.onMenuSelection} />
         <Container>
           <AutoComplete
             id="BorisText"
             value={selectedTitle}
-            data={Object.keys( this.props.data ).map( function( key ) {
-              return this.props.data[ key ].title;
-            }.bind( this ))}
-          onSelect={this.showVideo.bind( this )} />
+            data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
+            onSelect={this.showVideo} />
         </Container>
         <MediaCard
           title={selectedTitle}
