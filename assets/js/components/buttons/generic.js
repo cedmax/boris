@@ -1,8 +1,7 @@
 import React from 'react';
 import IconButton from 'material-ui/lib/icon-button';
-import Gif from 'material-ui/lib/svg-icons/action/gif';
 
-export default class GifButton extends React.Component {
+export default class Button extends React.Component {
   render() {
     return (
       <IconButton
@@ -11,8 +10,8 @@ export default class GifButton extends React.Component {
           verticalAlign: 'middle',
           display: 'inline-block'
         }}
-        tooltip='Show a gif instead'>
-        <Gif />
+        tooltip={this.props.tooltip}>
+        {this.props.icon}
       </IconButton>
     );
   }

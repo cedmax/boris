@@ -3,10 +3,12 @@ import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 import CopyButton from 'js/components/buttons/copy';
-import GifButton from 'js/components/buttons/gif';
-import VideoButton from 'js/components/buttons/video';
+import GifIcon from 'material-ui/lib/svg-icons/action/gif';
+import Button from 'js/components/buttons/generic';
 import Link from 'js/components/link';
 import Video from 'js/components/video';
+import VideoIcon from 'material-ui/lib/svg-icons/av/videocam';
+
 
 export default class MediaCard extends React.Component {
   constructor( props ) {
@@ -52,14 +54,20 @@ export default class MediaCard extends React.Component {
 
     if ( isGifEnabled && ! isGifVisible ) {
       alternateButton = (
-        <GifButton
-          onClick={this.toggleGif} />
+        <Button
+          onClick={this.toggleGif}
+          tooltip='Show the GIF instead'
+          icon={<GifIcon />}
+        />
       );
     } else if ( isGifVisible ) {
       url = this.props.gifUrl;
       alternateButton = (
-        <VideoButton
-          onClick={this.toggleGif} />
+        <Button
+          onClick={this.toggleGif}
+          tooltip='Show the video instead'
+          icon={<VideoIcon />}
+        />
       );
       media = (
         <img title={this.props.title} src={url} />
