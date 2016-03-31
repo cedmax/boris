@@ -3,7 +3,7 @@ var data = require( './boris.json' );
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
-
+var hotload = require('hotload');
 var React = require( 'react' );
 var ReactDOMServer = require( 'react-dom/server' );
 
@@ -35,7 +35,6 @@ jspm.import( 'js/app' ).then( function( App ) {
     res.locals.videoId = videoId;
     res.locals.dev = ( settings.env === 'dev' );
 
-
     var html = ReactDOMServer.renderToString( App( {
       data: data,
       about: about,
@@ -49,7 +48,12 @@ jspm.import( 'js/app' ).then( function( App ) {
     res.render( 'index' );
   }
 
-  app.get( '/about', route );
+  app.get( '/refresh/content', function( req, res ){
+    data = hotload( './boris.json' );
+    dataJSon = JSON.stringify( data );
+    res.redirect('/');
+  } );
+
   app.get( '/:pattern?', route );
   app.get( '/:pattern/:format?', route );
   app.listen( settings.port );
