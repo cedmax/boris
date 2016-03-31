@@ -7,6 +7,19 @@
 		<meta property="og:title" content="Boris, i video">
 		<meta property="og:url" content="http://boris.dsgn.it">
 		<meta property="og:description" content="Video dizionario di Boris, la serie">
+		{{#videoId}}
+		<meta property="og:type" content="video">
+		<meta property="og:video:url" content="https://www.youtube.com/embed/{{videoId}}">
+		<meta property="og:video:secure_url" content="https://www.youtube.com/embed/{{videoId}}">
+		<meta property="og:video:type" content="text/html">
+		<meta property="og:video:width" content="480">
+		<meta property="og:video:height" content="360">
+		<meta property="og:video:url" content="http://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
+		<meta property="og:video:secure_url" content="https://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
+		<meta property="og:video:type" content="application/x-shockwave-flash">
+		<meta property="og:video:width" content="480">
+		<meta property="og:video:height" content="360">
+		{{/videoId}}
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 		<style>
 			body {

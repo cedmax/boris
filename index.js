@@ -25,10 +25,16 @@ jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
   function route( req, res ) {
+    var selected = req.params.pattern;
+    var videoIdMatches = selected && data[selected].url.match(/youtu.be\/([^\?]+)|v=([^\&\s]+)/);
+    var videoId = videoIdMatches && videoIdMatches.length && (videoIdMatches[1] || videoIdMatches[2]);
+
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
     res.locals.json = dataJSon;
     res.locals.about = about;
+    res.locals.videoId = videoId;
     res.locals.dev = ( settings.env === 'dev' );
+
 
     var html = ReactDOMServer.renderToString( App( {
       data: data,
