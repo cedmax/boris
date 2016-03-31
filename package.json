@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "4.13.3",
     "express-autoprefixer": "4.0.3",
+    "get-youtube-id": "^1.0.0",
     "hogan-express": "0.5.2",
     "hotload": "0.0.5",
     "jspm": "0.16.31",
