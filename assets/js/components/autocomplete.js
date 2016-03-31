@@ -6,7 +6,7 @@ export default class BorisAutoComplete extends React.Component {
     var placeHolder = this.props.data[ 0 ];
     return (
       <div style={{
-        minWidth:'250px',
+        minWidth: '250px',
         width: '40%',
         margin: 'auto'
       }}>
