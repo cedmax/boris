@@ -39,12 +39,12 @@ export default class MediaCard extends React.Component {
 
     let styles = {
       position: 'absolute',
-      top: 'calc(50% + 70px)',
+      top: 'calc(30% + 200px)',
       left: '50%',
       transform: 'translate3D(-50%,-50%,0)',
       width: '80vmin'
     };
-
+    
     let alternateButton;
     let url = this.props.videoUrl;
     let media = ( <Video videoUrl={url} /> );
