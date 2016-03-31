@@ -3,9 +3,10 @@ var data = require( './boris.json' );
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
-var hotload = require('hotload');
+var hotload = require( 'hotload' );
 var React = require( 'react' );
 var ReactDOMServer = require( 'react-dom/server' );
+var getYouTubeID = require( 'get-youtube-id' );
 
 var jspm = require( 'jspm' );
 jspm.setPackagePath( './' );
@@ -25,33 +26,31 @@ jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
   function route( req, res ) {
-    var selected = req.params.pattern;
-    var videoIdMatches = selected && data[selected].url.match(/youtu.be\/([^\?]+)|v=([^\&\s]+)/);
-    var videoId = videoIdMatches && videoIdMatches.length && (videoIdMatches[1] || videoIdMatches[2]);
-
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
+
+    var selected = req.params.pattern;
+
     res.locals.json = dataJSon;
     res.locals.about = about;
-    res.locals.videoId = videoId;
+    res.locals.videoId = getYouTubeID( data[ selected ] && data[ selected ].url );
+    res.locals.domain = req.protocol + '://' + req.get( 'host' );
+    res.locals.url = ( selected ) ? res.locals.domain + '/' + selected : res.locals.domain;
     res.locals.dev = ( settings.env === 'dev' );
-
-    var html = ReactDOMServer.renderToString( App( {
+    res.locals.DOM = ReactDOMServer.renderToString( App( {
       data: data,
       about: about,
       onCopyReady: function() {},
-      selected: req.params.pattern,
+      selected: selected,
       format: req.params.format
     } ));
-
-    res.locals.DOM = html;
 
     res.render( 'index' );
   }
 
-  app.get( '/refresh/content', function( req, res ){
+  app.get( '/refresh/content', function( req, res ) {
     data = hotload( './boris.json' );
     dataJSon = JSON.stringify( data );
-    res.redirect('/');
+    res.redirect( '/' );
   } );
 
   app.get( '/:pattern?', route );

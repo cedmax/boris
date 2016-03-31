@@ -17,6 +17,8 @@ var about = marked( fs.readFileSync( './about.md', { encoding: 'utf8' } ));
 
 function route( req, res ) {
   global.navigator = { userAgent: req.headers[ 'user-agent' ] };
+  res.locals.domain = req.protocol + '://' + req.get( 'host' );
+  res.locals.url = res.locals.domain;
   res.locals.json = dataJSon;
   res.locals.about = about;
   res.locals.dev = ( settings.env === 'dev' );
