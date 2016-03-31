@@ -34,6 +34,7 @@ export default class Nav extends React.Component {
           <Dialog
              title="About"
              modal={false}
+             autoScrollBodyContent={true}
              open={this.state.open}
              onRequestClose={this.handleToggle}
              >
