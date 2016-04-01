@@ -8,8 +8,6 @@ export default class App extends React.Component {
   constructor( props ) {
     super( props );
     this.data = props.data;
-
-    this.onMenuSelection = this.onMenuSelection.bind( this );
     this.showVideo = this.showVideo.bind( this );
   }
 
@@ -19,10 +17,6 @@ export default class App extends React.Component {
     if ( sel.length ) {
       this.props.navigateTo( '/' + sel[ 0 ] );
     }
-  }
-
-  onMenuSelection( menuItem ) {
-    this.props.navigateTo( menuItem );
   }
 
   render() {
@@ -41,8 +35,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav title="Boris"
-          staticContent={this.props.staticContent}
-          onSelect={this.onMenuSelection} />
+          staticContent={this.props.staticContent} />
         <Container>
           <AutoComplete
             id="BorisText"
