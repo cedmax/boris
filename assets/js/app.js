@@ -7,7 +7,9 @@ import Nav from 'js/components/nav';
 export default class App extends React.Component {
   constructor( props ) {
     super( props );
-    this.data = props.data;
+    let category = props.category;
+    this.sectionTitle = props.data[category].title;
+    this.data = props.data[category].videos;
     this.showVideo = this.showVideo.bind( this );
   }
 
@@ -15,7 +17,7 @@ export default class App extends React.Component {
     var keys = Object.keys( this.data );
     var sel = keys.filter( ( key ) => this.data[ key ].title === selected );
     if ( sel.length ) {
-      this.props.navigateTo( '/' + sel[ 0 ] );
+      this.props.navigateTo( '/' + this.props.category + '/' + sel[ 0 ] );
     }
   }
 
@@ -24,8 +26,8 @@ export default class App extends React.Component {
 
     if ( selected ) {
       var {
-        title: selectedTitle,
-        url: selectedUrl,
+        title: videoTitle,
+        url: videoUrl,
         gif: gifUrl
       } = this.data[ selected ];
 
@@ -34,19 +36,19 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Nav title="Boris"
+        <Nav title={this.sectionTitle}
           staticContent={this.props.staticContent} />
         <Container>
           <AutoComplete
             id="BorisText"
-            value={selectedTitle}
+            value={videoTitle}
             data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
             onSelect={this.showVideo} />
         </Container>
         <MediaCard
-          title={selectedTitle}
+          title={videoTitle}
           gifUrl={gifUrl}
-          videoUrl={selectedUrl}
+          videoUrl={videoUrl}
           onCopyReady={this.props.onCopyReady}
           forceGif={forceGif}
         />

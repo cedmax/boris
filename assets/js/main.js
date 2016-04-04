@@ -15,6 +15,7 @@ class Main extends React.Component {
       <App
         navigateTo={browserHistory.push}
         data={data}
+        category={this.props.params.category}
         selected={this.props.params.selected}
         format={this.props.params.format}
         onCopyReady={function( selector ) {
@@ -30,8 +31,9 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" >
       <IndexRoute component={Main} />
-      <Route path="/:selected" component={Main}/>
-      <Route path="/:selected/:format" component={Main}/>
+      <Route path="/:category" component={Main}/>
+      <Route path="/:category/:selected" component={Main}/>
+      <Route path="/:category/:selected/:format" component={Main}/>
     </Route>
   </Router>
 ), document.getElementById( 'app' ));

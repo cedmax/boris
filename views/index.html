@@ -1,24 +1,24 @@
 <html>
 	<head>
-		<title>Boris, i video</title>
+		<title>{{title}}, i video @ TrashMe.me</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<meta property="og:image" content="{{domain}}/img/bk.jpg">
-		<meta property="og:title" content="Boris, i video">
+		<meta property="og:title" content="{{title}}, i video @ TrashMe.me">
 		<meta property="og:url" content="{{url}}">
-		<meta property="og:description" content="Video dizionario di Boris, la serie">
+		<meta property="og:description" content="Video dizionario di {{title}}">
 		{{#videoId}}
-		<meta property="og:type" content="video">
-		<meta property="og:video:url" content="https://www.youtube.com/embed/{{videoId}}">
-		<meta property="og:video:secure_url" content="https://www.youtube.com/embed/{{videoId}}">
-		<meta property="og:video:type" content="text/html">
-		<meta property="og:video:width" content="480">
-		<meta property="og:video:height" content="360">
-		<meta property="og:video:url" content="http://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
-		<meta property="og:video:secure_url" content="https://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
-		<meta property="og:video:type" content="application/x-shockwave-flash">
-		<meta property="og:video:width" content="480">
-		<meta property="og:video:height" content="360">
+			<meta property="og:type" content="video">
+			<meta property="og:video:url" content="https://www.youtube.com/embed/{{videoId}}">
+			<meta property="og:video:secure_url" content="https://www.youtube.com/embed/{{videoId}}">
+			<meta property="og:video:type" content="text/html">
+			<meta property="og:video:width" content="480">
+			<meta property="og:video:height" content="360">
+			<meta property="og:video:url" content="http://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
+			<meta property="og:video:secure_url" content="https://www.youtube.com/v/{{videoId}}?version=3&amp;autohide=1">
+			<meta property="og:video:type" content="application/x-shockwave-flash">
+			<meta property="og:video:width" content="480">
+			<meta property="og:video:height" content="360">
 		{{/videoId}}
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 		<style>
@@ -26,7 +26,7 @@
 				margin:0;
 				padding:0;
 				height:100%;
-				background: url(/img/bk.jpg) 50% calc(50% + 70px) no-repeat;
+				background: url(/img/{{category}}.jpg) 50% calc(50% + 70px) no-repeat;
 				background-size: cover;
 				overflow: hidden;
 			}

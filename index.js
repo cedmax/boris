@@ -1,5 +1,6 @@
 var express = require( 'express' );
-var data = require( './boris.json' );
+var requiredir = require( 'requiredir' );
+var data = requiredir( './data' );
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
@@ -29,16 +30,23 @@ jspm.import( 'js/app' ).then( function( App ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
 
     var selected = req.params.pattern;
+    var category = req.params.category;
+
+    var currentSection = data[category].title;
+    var currentData = data[category].videos;
 
     res.locals.json = dataJSon;
+    res.locals.title = currentSection;
     res.locals.about = about;
-    res.locals.videoId = getYouTubeID( data[ selected ] && data[ selected ].url );
+    res.locals.category = category;
+    res.locals.videoId = getYouTubeID( currentData[ selected ] && currentData[ selected ].url );
     res.locals.domain = req.protocol + '://' + req.get( 'host' );
     res.locals.url = ( selected ) ? res.locals.domain + '/' + selected : res.locals.domain;
     res.locals.dev = ( settings.env === 'dev' );
     res.locals.DOM = ReactDOMServer.renderToString( App( {
       data: data,
       about: about,
+      category: category,
       onCopyReady: function() {},
       selected: selected,
       format: req.params.format
@@ -47,13 +55,15 @@ jspm.import( 'js/app' ).then( function( App ) {
     res.render( 'index' );
   }
 
-  app.get( '/refresh/content', function( req, res ) {
-    data = hotload( './boris.json' );
-    dataJSon = JSON.stringify( data );
-    res.redirect( '/' );
-  } );
+  // app.get( '/refresh/content', function( req, res ) {
+  //   data = hotload( './boris.json' );
+  //   dataJSon = JSON.stringify( data );
+  //   res.redirect( '/' );
+  // } );
 
-  app.get( '/:pattern?', route );
-  app.get( '/:pattern/:format?', route );
+  app.get( '/', function( req, res){
+    res.redirect('/' + Object.keys(data)[0]);
+  });
+  app.get( '/:category/:pattern?/:format?', route );
   app.listen( settings.port );
 } );
