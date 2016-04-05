@@ -53,8 +53,7 @@ export default class App extends React.Component {
 
     return (
       <div style={{
-        background: `url(/img/${category}.jpg) 50% calc(50% + 70px) no-repeat`,
-        backgroundSize: 'cover',
+        background: `url(/img/${category}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
         position: 'absolute',
         height: '100%',
         width: '100%'
