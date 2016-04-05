@@ -9,11 +9,16 @@ injectTapEventPlugin();
 
 const data = JSON.parse( document.getElementById( 'data' ).innerHTML );
 
+function navigateTo( category ) {
+  let args = Array.prototype.slice.call( arguments );
+  browserHistory.push( '/' + args.join( '/' ));
+}
+
 class Main extends React.Component {
   render() {
     return (
       <App
-        navigateTo={browserHistory.push}
+        navigateTo={navigateTo}
         data={data}
         category={this.props.params.category}
         selected={this.props.params.selected}

@@ -2,8 +2,46 @@ import React from 'react';
 import AutoComplete from 'material-ui/lib/auto-complete';
 
 export default class BorisAutoComplete extends React.Component {
+  constructor ( props ) {
+    super( props );
+
+    this.state = {
+      searchText: '',
+      category: props.category
+    };
+  }
+
+  handleUpdateInput( text ) {
+    this.setState( {
+      searchText: text
+    } );
+  }
+
+  handleSelect( text ) {
+    this.handleUpdateInput( text );
+    this.props.onSelect( text );
+  }
+
+  handleChangeCategory( category ) {
+    this.setState( {
+      category,
+      searchText: ''
+    } );
+  }
+
+  shouldComponentUpdate( nextProp, nextState ) {
+    if ( nextProp.category !== nextState.category ) {
+      this.handleChangeCategory( nextProp.category );
+      return false;
+    }
+    return true;
+  }
+
   render() {
-    var placeHolder = this.props.data[ 0 ];
+    var placeHolder = this.props.value ?
+      this.props.value :
+      `Prova con ${ this.props.data[ 0 ] }`;
+
     return (
       <div style={{
         minWidth: '250px',
@@ -11,12 +49,15 @@ export default class BorisAutoComplete extends React.Component {
         margin: 'auto'
       }}>
         <AutoComplete
+          id={`search-${this.props.category}`}
+          searchText={this.state.searchText}
           fullWidth={true}
-          id={this.props.id}
-          hintText={this.props.value ? this.props.value : `Prova con ${placeHolder}`}
+          hintText={placeHolder}
           dataSource={this.props.data}
           filter={AutoComplete.caseInsensitiveFilter}
-          onNewRequest={this.props.onSelect} />
+          openOnFocus={true}
+          onUpdateInput={this.handleUpdateInput.bind( this )}
+          onNewRequest={this.handleSelect.bind( this )} />
       </div>
     );
   }

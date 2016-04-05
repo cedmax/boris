@@ -1,6 +1,8 @@
 var express = require( 'express' );
 var requiredir = require( 'requiredir' );
 var data = requiredir( './data' );
+delete data.length;
+
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
@@ -32,8 +34,8 @@ jspm.import( 'js/app' ).then( function( App ) {
     var selected = req.params.pattern;
     var category = req.params.category;
 
-    var currentSection = data[category].title;
-    var currentData = data[category].videos;
+    var currentSection = data[ category ].title;
+    var currentData = data[ category ].videos;
 
     res.locals.json = dataJSon;
     res.locals.title = currentSection;
@@ -61,9 +63,9 @@ jspm.import( 'js/app' ).then( function( App ) {
   //   res.redirect( '/' );
   // } );
 
-  app.get( '/', function( req, res){
-    res.redirect('/' + Object.keys(data)[0]);
-  });
+  app.get( '/', function( req, res ) {
+    res.redirect( '/' + Object.keys( data )[ 0 ] );
+  } );
   app.get( '/:category/:pattern?/:format?', route );
   app.listen( settings.port );
 } );
