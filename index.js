@@ -34,34 +34,47 @@ jspm.import( 'js/app' ).then( function( App ) {
     var selected = req.params.pattern;
     var category = req.params.category;
 
-    var currentSection = data[ category ].title;
-    var currentData = data[ category ].videos;
+    if ( data[ category ] ) {
+      var currentSection = data[ category ].title;
+      var currentData = data[ category ].videos;
 
-    res.locals.json = dataJSon;
-    res.locals.title = currentSection;
-    res.locals.about = about;
-    res.locals.category = category;
-    res.locals.videoId = getYouTubeID( currentData[ selected ] && currentData[ selected ].url );
-    res.locals.domain = req.protocol + '://' + req.get( 'host' );
-    res.locals.url = ( selected ) ? res.locals.domain + '/' + selected : res.locals.domain;
-    res.locals.dev = ( settings.env === 'dev' );
-    res.locals.DOM = ReactDOMServer.renderToString( App( {
-      data: data,
-      about: about,
-      category: category,
-      onCopyReady: function() {},
-      selected: selected,
-      format: req.params.format
-    } ));
+      if ( selected && ! currentData[ selected ] ) {
+        res.redirect( `/${category}` );
+      } else {
+        res.locals.json = dataJSon;
+        res.locals.title = currentSection;
+        res.locals.about = about;
+        res.locals.category = category;
+        res.locals.videoId = getYouTubeID( currentData[ selected ] && currentData[ selected ].url );
+        res.locals.domain = req.protocol + '://' + req.get( 'host' );
+        res.locals.url = ( selected ) ? res.locals.domain + '/' + selected : res.locals.domain;
+        res.locals.dev = ( settings.env === 'dev' );
+        res.locals.DOM = ReactDOMServer.renderToString( App( {
+          data: data,
+          about: about,
+          category: category,
+          onCopyReady: function() {},
+          selected: selected,
+          format: req.params.format
+        } ));
 
-    res.render( 'index' );
+        res.render( 'index' );
+      }
+    } else {
+      res.redirect( '/' );
+    }
   }
 
-  // app.get( '/refresh/content', function( req, res ) {
-  //   data = hotload( './boris.json' );
-  //   dataJSon = JSON.stringify( data );
-  //   res.redirect( '/' );
-  // } );
+  app.get( '/refresh/:key', function( req, res ) {
+    var key = req.params.key;
+    if ( key ) {
+      data[ key ] = hotload( `./data/${key}.json` );
+      dataJSon = JSON.stringify( data );
+      res.redirect( `/${key}` );
+    } else {
+      res.redirect( '/' );
+    }
+  } );
 
   app.get( '/', function( req, res ) {
     res.redirect( '/' + Object.keys( data )[ 0 ] );

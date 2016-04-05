@@ -9,7 +9,7 @@ injectTapEventPlugin();
 
 const data = JSON.parse( document.getElementById( 'data' ).innerHTML );
 
-function navigateTo( category ) {
+function navigateTo() {
   let args = Array.prototype.slice.call( arguments );
   browserHistory.push( '/' + args.join( '/' ));
 }
