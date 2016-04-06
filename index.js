@@ -47,7 +47,7 @@ jspm.import( 'js/app' ).then( function( App ) {
         res.locals.category = category;
         res.locals.videoId = getYouTubeID( currentData[ selected ] && currentData[ selected ].url );
         res.locals.domain = req.protocol + '://' + req.get( 'host' );
-        res.locals.url = ( selected ) ? res.locals.domain + '/'+ category + '/'  + selected : res.locals.domain + '/' + category;
+        res.locals.url = ( selected ) ? res.locals.domain + '/' + category + '/'  + selected : res.locals.domain + '/' + category;
         res.locals.dev = ( settings.env === 'dev' );
         res.locals.DOM = ReactDOMServer.renderToString( App( {
           data: data,

@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "jspm install",
     "bundle": "jspm bundle-sfx -m js/main assets/bundle.js",
-    "test": "jsonlint data/*.json --quiet && eslint ./*.js assets/js"
+    "test": "jsonlint data/*.json --quiet && eslint ./*.js assets/js && jscs -x ./*.js assets/js"
   },
   "author": "",
   "license": "ISC",
