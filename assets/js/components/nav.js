@@ -38,10 +38,10 @@ export default class Nav extends React.Component {
     var dialogIcons = (
       <div>
         <IconButton onClick={this.handleToggleSubmitDialog}>
-          <ControlPointIcon />
+          <ControlPointIcon color="#fff" />
         </IconButton>
         <IconButton onClick={this.handleToggleDialog}>
-          <HelpOutlineIcon />
+          <HelpOutlineIcon color="#fff" />
         </IconButton>
       </div>
     );
@@ -69,7 +69,7 @@ export default class Nav extends React.Component {
 
     let submitDialog;
     if ( this.state.openSubmitDialog ) {
-      submitDialog = (<SubmitDialog />);
+      submitDialog = ( <SubmitDialog /> );
     }
 
     return (
