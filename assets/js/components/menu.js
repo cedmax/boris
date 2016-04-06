@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 
-export default class Nav extends React.Component {
+export default class Menu extends React.Component {
   render() {
     return (
       <div>
