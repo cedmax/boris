@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "jspm install",
     "bundle": "jspm bundle-sfx -m js/main assets/bundle.js",
-    "test": "jsonlint data/*.json --quiet && eslint ./*.js assets/js && jscs -x ./*.js assets/js"
+    "test": "jsonlint data/*.json --quiet && eslint ./*.js assets/js && jscs -x ./*.js assets/js",
+    "test-content": "node tests/video"
   },
   "author": "",
   "license": "ISC",
@@ -27,10 +28,12 @@
     "autoprefixer": "^5.2.0",
     "babel-eslint": "5.0.0",
     "babel-jscs": "2.0.5",
+    "colors": "^1.1.2",
     "eslint": "2.2.0",
     "eslint-plugin-react": "2.7.1",
     "jscs": "2.11.0",
-    "jsonlint": "1.6.2"
+    "jsonlint": "1.6.2",
+    "request": "^2.70.0"
   },
   "jspm": {
     "directories": {
