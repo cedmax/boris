@@ -28,6 +28,38 @@ var about = marked( fs.readFileSync( './about.md', { encoding: 'utf8' } ));
 jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
+  function render(req, res, category, selected){
+    var currentSection = data[ category ].title;
+    var currentData = data[ category ].videos;
+
+    if ( selected && ! currentData[ selected ] ) {
+      res.redirect( `/${category}` );
+    } else {
+      var domain = req.protocol + '://' + req.get( 'host' );
+
+      Object.assign(res.locals, {
+        json: dataJSon,
+        title: currentSection,
+        about: about,
+        category: category,
+        videoId: getYouTubeID( currentData[ selected ] && currentData[ selected ].url ),
+        domain: domain,
+        url: `${domain}/${category}` + (selected?`/${selected}`:''),
+        dev: ( settings.env === 'dev' ),
+        DOM: ReactDOMServer.renderToString( App( {
+          data: data,
+          about: about,
+          category: category,
+          onCopyReady: function() {},
+          selected: selected,
+          format: req.params.format
+        } ))
+      });
+
+      res.render( 'index' );
+    }
+  }
+
   function route( req, res ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
 
@@ -35,31 +67,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     var category = req.params.category;
 
     if ( data[ category ] ) {
-      var currentSection = data[ category ].title;
-      var currentData = data[ category ].videos;
-
-      if ( selected && ! currentData[ selected ] ) {
-        res.redirect( `/${category}` );
-      } else {
-        res.locals.json = dataJSon;
-        res.locals.title = currentSection;
-        res.locals.about = about;
-        res.locals.category = category;
-        res.locals.videoId = getYouTubeID( currentData[ selected ] && currentData[ selected ].url );
-        res.locals.domain = req.protocol + '://' + req.get( 'host' );
-        res.locals.url = ( selected ) ? res.locals.domain + '/' + category + '/'  + selected : res.locals.domain + '/' + category;
-        res.locals.dev = ( settings.env === 'dev' );
-        res.locals.DOM = ReactDOMServer.renderToString( App( {
-          data: data,
-          about: about,
-          category: category,
-          onCopyReady: function() {},
-          selected: selected,
-          format: req.params.format
-        } ));
-
-        res.render( 'index' );
-      }
+      render(req, res, category, selected);
     } else {
       res.redirect( '/' );
     }
@@ -78,18 +86,21 @@ jspm.import( 'js/app' ).then( function( App ) {
 
   app.get( '/', function( req, res ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
+    var domain = req.protocol + '://' + req.get( 'host' );
 
-    res.locals.json = dataJSon;
-    res.locals.title = 'Trash Meme';
-    res.locals.about = about;
-    res.locals.domain = req.protocol + '://' + req.get( 'host' );
-    res.locals.url = res.locals.domain + '/';
-    res.locals.dev = ( settings.env === 'dev' );
-    res.locals.DOM = ReactDOMServer.renderToString( App( {
-      data: data,
-      about: about
-    } ));
-
+    Object.assign(res.locals, {
+      json: dataJSon,
+      title: 'Trash Meme',
+      about: about,
+      domain: domain,
+      url: domain + '/',
+      dev: ( settings.env === 'dev' ),
+      DOM: ReactDOMServer.renderToString( App( {
+        data: data,
+        about: about
+      } ))
+    });
+    
     res.render( 'index' );
   } );
 
