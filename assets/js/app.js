@@ -38,8 +38,9 @@ export default class App extends React.Component {
   render() {
     let category = this.props.category;
 
-    let content;
+    let content, sectionTitle;
     if ( category ) {
+      sectionTitle = this.props.data[ category ].title;
       content = (
         <Category {...this.props} />
       );
@@ -52,7 +53,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav
-          title={this.sectionTitle || 'Trash Meme'}
+          title={sectionTitle || 'Trash Meme'}
           menu={this.menu}
           current={category || ''}
           onMenuClick={this.navigateCategory}
