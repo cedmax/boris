@@ -39,7 +39,7 @@ export default class MediaCard extends React.Component {
 
     let styles = {
       position: 'absolute',
-      top: 'calc(30% + 200px)',
+      top: 'calc(25% + 200px)',
       left: '50%',
       transform: 'translate3D(-50%,-50%,0)',
       width: '80vmin'
