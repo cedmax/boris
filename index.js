@@ -28,7 +28,7 @@ var about = marked( fs.readFileSync( './about.md', { encoding: 'utf8' } ));
 jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
-  function render(req, res, category, selected){
+  function render( req, res, category, selected ) {
     var currentSection = data[ category ].title;
     var currentData = data[ category ].videos;
 
@@ -37,14 +37,14 @@ jspm.import( 'js/app' ).then( function( App ) {
     } else {
       var domain = req.protocol + '://' + req.get( 'host' );
 
-      Object.assign(res.locals, {
+      Object.assign( res.locals, {
         json: dataJSon,
         title: currentSection,
         about: about,
         category: category,
         videoId: getYouTubeID( currentData[ selected ] && currentData[ selected ].url ),
         domain: domain,
-        url: `${domain}/${category}` + (selected?`/${selected}`:''),
+        url: `${domain}/${category}` + ( selected ? `/${selected}` : '' ),
         dev: ( settings.env === 'dev' ),
         DOM: ReactDOMServer.renderToString( App( {
           data: data,
@@ -54,7 +54,7 @@ jspm.import( 'js/app' ).then( function( App ) {
           selected: selected,
           format: req.params.format
         } ))
-      });
+      } );
 
       res.render( 'index' );
     }
@@ -67,7 +67,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     var category = req.params.category;
 
     if ( data[ category ] ) {
-      render(req, res, category, selected);
+      render( req, res, category, selected );
     } else {
       res.redirect( '/' );
     }
@@ -88,7 +88,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
     var domain = req.protocol + '://' + req.get( 'host' );
 
-    Object.assign(res.locals, {
+    Object.assign( res.locals, {
       json: dataJSon,
       title: 'Trash Meme',
       about: about,
@@ -99,8 +99,8 @@ jspm.import( 'js/app' ).then( function( App ) {
         data: data,
         about: about
       } ))
-    });
-    
+    } );
+
     res.render( 'index' );
   } );
 

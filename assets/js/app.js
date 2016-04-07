@@ -12,9 +12,6 @@ export default class App extends React.Component {
       value: props.data[ key ].title
     } ));
 
-    this.videos = this.props.data[ this.props.category ] &&
-        this.props.data[ this.props.category ].videos;
-
     this.showVideo = this.showVideo.bind( this );
     this.navigateCategory = this.navigateCategory.bind( this );
   }
@@ -37,12 +34,14 @@ export default class App extends React.Component {
 
   render() {
     let category = this.props.category;
+    this.videos = this.props.data[ category ] &&
+        this.props.data[ category ].videos;
 
     let content, sectionTitle;
     if ( category ) {
       sectionTitle = this.props.data[ category ].title;
       content = (
-        <Category {...this.props} />
+        <Category {...this.props} onVideoSelect={this.showVideo} />
       );
     } else {
       content = (

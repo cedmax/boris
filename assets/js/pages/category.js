@@ -33,7 +33,7 @@ export default class App extends React.Component {
             value={videoTitle}
             category={category}
             data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
-            onSelect={this.showVideo} />
+            onSelect={this.props.onVideoSelect} />
         </Container>
         <MediaCard
           title={videoTitle}
