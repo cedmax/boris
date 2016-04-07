@@ -3,7 +3,9 @@
 		<title>{{title}}, i video @ TrashMe.me</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<meta property="og:image" content="{{domain}}/img/{{category}}.jpg">
+		{{#category}}
+			<meta property="og:image" content="{{domain}}/img/{{category}}.jpg">
+		{{/category}}
 		<meta property="og:title" content="{{title}}, i video @ TrashMe.me">
 		<meta property="og:url" content="{{url}}">
 		<meta property="og:description" content="Video dizionario di {{title}}">
@@ -23,6 +25,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 		<style>
 			body {
+				background: rgb(224, 247, 250);
 				margin:0;
 				padding:0;
 				height:100%;

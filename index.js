@@ -77,8 +77,22 @@ jspm.import( 'js/app' ).then( function( App ) {
   } );
 
   app.get( '/', function( req, res ) {
-    res.redirect( '/' + Object.keys( data )[ 0 ] );
+    global.navigator = { userAgent: req.headers[ 'user-agent' ] };
+
+    res.locals.json = dataJSon;
+    res.locals.title = 'Trash Meme';
+    res.locals.about = about;
+    res.locals.domain = req.protocol + '://' + req.get( 'host' );
+    res.locals.url = res.locals.domain + '/';
+    res.locals.dev = ( settings.env === 'dev' );
+    res.locals.DOM = ReactDOMServer.renderToString( App( {
+      data: data,
+      about: about
+    } ));
+
+    res.render( 'index' );
   } );
+
   app.get( '/:category/:pattern?/:format?', route );
   app.listen( settings.port );
 } );
