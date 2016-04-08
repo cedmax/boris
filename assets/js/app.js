@@ -36,7 +36,7 @@ export default class App extends React.Component {
       <div>
         <Nav title="Boris"
           staticContent={this.props.staticContent} />
-        <Container>Il video dizionario di boris ora è diventato parte di {<a href="http://trashme.me">TrashMeme</a>}!</Container>
+        <Container>Il video dizionario di boris ora è anche parte di {<a href="http://trashme.me">TrashMeme</a>}!</Container>
         <Container>
           <AutoComplete
             id="BorisText"
