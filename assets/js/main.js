@@ -14,7 +14,7 @@ function navigateTo() {
   browserHistory.push( '/' + args.join( '/' ));
 }
 
-function getAvailableDropDownSpace(){
+function getAvailableDropDownSpace() {
   return document.body.clientHeight - 200;
 }
 

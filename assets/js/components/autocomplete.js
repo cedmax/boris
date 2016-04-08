@@ -44,7 +44,7 @@ export default class BorisAutoComplete extends React.Component {
 
     let menuProps;
 
-    if (this.props.dropDownHeight) {
+    if ( this.props.dropDownHeight ) {
       menuProps = {
         maxHeight: this.props.dropDownHeight
       };
