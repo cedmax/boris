@@ -23,6 +23,8 @@ var dataJSon = JSON.stringify( data );
 var about = marked( fs.readFileSync( './about.md', { encoding: 'utf8' } ));
 
 jspm.import( 'js/app' ).then( function( App ) {
+  var redirect = 'http://trashme.me/boris';
+
   App = React.createFactory( App.default );
 
   function route( req, res ) {
@@ -34,7 +36,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     res.locals.about = about;
     res.locals.videoId = getYouTubeID( data[ selected ] && data[ selected ].url );
     res.locals.domain = req.protocol + '://' + req.get( 'host' );
-    res.locals.url = ( selected ) ? res.locals.domain + '/' + selected : res.locals.domain;
+    res.locals.url = redirect + (( selected ) ? '/' + selected : '' );
     res.locals.dev = ( settings.env === 'dev' );
     res.locals.DOM = ReactDOMServer.renderToString( App( {
       data: data,
