@@ -30,6 +30,7 @@ export default class App extends React.Component {
       }}>
         <Container>
           <AutoComplete
+            dropDownHeight={this.props.dropDownHeight}
             value={videoTitle}
             category={category}
             data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }

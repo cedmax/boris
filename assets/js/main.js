@@ -14,6 +14,10 @@ function navigateTo() {
   browserHistory.push( '/' + args.join( '/' ));
 }
 
+function getAvailableDropDownSpace(){
+  return document.body.clientHeight - 200;
+}
+
 class Main extends React.Component {
   render() {
     return (
@@ -26,6 +30,7 @@ class Main extends React.Component {
         onCopyReady={function( selector ) {
           new ClipBoard( selector );
         }}
+        dropDownHeight={getAvailableDropDownSpace()}
         staticContent={document.getElementById( 'about' ).innerHTML}
         />
     );

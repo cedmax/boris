@@ -17,17 +17,27 @@ export default class Nav extends React.Component {
       openMenu: false,
       openSubmitDialog: false
     };
-    this.handleToggleDialog = this.handleToggleDialog.bind( this );
-    this.handleToggleSubmitDialog = this.handleToggleSubmitDialog.bind( this );
+    this.handleOpenDialog = this.handleOpenDialog.bind( this );
+    this.handleOpenSubmitDialog = this.handleOpenSubmitDialog.bind( this );
+    this.handleCloseDialog = this.handleCloseDialog.bind( this );
+    this.handleCloseSubmitDialog = this.handleCloseSubmitDialog.bind( this );
     this.handleToggleMenu = this.handleToggleMenu.bind( this );
   }
 
-  handleToggleDialog () {
-    this.setState( { openDialog: ! this.state.openDialog } );
+  handleOpenDialog () {
+    this.setState( { openDialog: true } );
   }
 
-  handleToggleSubmitDialog () {
-    this.setState( { openSubmitDialog: ! this.state.openSubmitDialog } );
+  handleOpenSubmitDialog () {
+    this.setState( { openSubmitDialog: true } );
+  }
+
+  handleCloseDialog () {
+    this.setState( { openDialog: false } );
+  }
+
+  handleCloseSubmitDialog () {
+    this.setState( { openSubmitDialog: false } );
   }
 
   handleToggleMenu () {
@@ -37,10 +47,10 @@ export default class Nav extends React.Component {
   render() {
     var dialogIcons = (
       <div>
-        <IconButton onClick={this.handleToggleSubmitDialog}>
+        <IconButton onClick={this.handleOpenSubmitDialog}>
           <ControlPointIcon color="#fff" />
         </IconButton>
-        <IconButton onClick={this.handleToggleDialog}>
+        <IconButton onClick={this.handleOpenDialog}>
           <HelpOutlineIcon color="#fff" />
         </IconButton>
       </div>
@@ -83,14 +93,14 @@ export default class Nav extends React.Component {
              modal={false}
              autoScrollBodyContent={true}
              open={this.state.openDialog}
-             onRequestClose={this.handleToggleDialog}
+             onRequestClose={this.handleCloseDialog}
              >
              <div dangerouslySetInnerHTML={{ __html: this.props.staticContent }}></div>
            </Dialog>
           <Dialog
             modal={false}
             open={this.state.openSubmitDialog}
-            onRequestClose={this.handleToggleSubmitDialog}>
+            onRequestClose={this.handleCloseSubmitDialog}>
            {submitDialog}
           </Dialog>
         <LeftNav

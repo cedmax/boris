@@ -42,6 +42,14 @@ export default class BorisAutoComplete extends React.Component {
       this.props.value :
       `Prova con ${ this.props.data[ 0 ] }`;
 
+    let menuProps;
+
+    if (this.props.dropDownHeight) {
+      menuProps = {
+        maxHeight: this.props.dropDownHeight
+      };
+    }
+
     return (
       <div style={{
         minWidth: '250px',
@@ -49,6 +57,7 @@ export default class BorisAutoComplete extends React.Component {
         margin: 'auto'
       }}>
         <AutoComplete
+          menuProps={menuProps}
           id={`search-${this.props.category}`}
           searchText={this.state.searchText}
           fullWidth={true}
