@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "jspm install",
-    "bundle": "jspm bundle-sfx -m js/main assets/bundle.js",
-    "test": "jsonlint data/*.json --quiet && eslint ./*.js assets/js && jscs -x ./*.js assets/js",
-    "test-content": "node tests/video"
+    "sort-json": "sort-json",
+    "fix": "scripts/sort-json.sh && jscs -x ./*.js assets/js",
+    "validate": "jsonlint data/*.json --quiet && eslint ./*.js assets/js",
+    "test": "npm run fix && npm run validate",
+    "test-all": "npm test && node scripts/test-videos",
+    "bundle": "jspm bundle-sfx -m js/main assets/bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -33,7 +35,8 @@
     "eslint-plugin-react": "2.7.1",
     "jscs": "2.11.0",
     "jsonlint": "1.6.2",
-    "request": "^2.70.0"
+    "request": "^2.70.0",
+    "sort-json": "^1.2.0"
   },
   "jspm": {
     "directories": {
