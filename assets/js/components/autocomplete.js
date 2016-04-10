@@ -40,7 +40,7 @@ export default class BorisAutoComplete extends React.Component {
   render() {
     var placeHolder = this.props.value ?
       this.props.value :
-      `Prova con ${ this.props.data[ 0 ] }`;
+      `Prova con "${ this.props.data[ 0 ] }"`;
 
     let menuProps;
 
