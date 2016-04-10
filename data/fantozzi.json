@@ -28,6 +28,78 @@
 		"in-tiro": {
 			"title": "Son già in tiro",
 			"url": "https://www.youtube.com/watch?v=58uOn2eEmY0"
+		},
+		"coraggio-ragioniere": {
+			"title": "Coraggio ragioniere che ce la fa",
+			"url": "https://www.youtube.com/watch?v=j0T5uCTanWw"
+		},
+		"excalibur": {
+			"title": "Excalibur",
+			"url": "https://www.youtube.com/watch?v=eLEUqMdbIzI"
+		},
+		"eco": {
+			"title": "L'eco",
+			"url": "https://www.youtube.com/watch?v=SNlEiaPwzlc"
+		},
+		"sveglia": {
+			"title": "La sveglia di Fantozzi",
+			"url": "https://www.youtube.com/watch?v=sN6opoE0iZk"
+		},
+		"accento-svedese": {
+			"title": "Accento svedese",
+			"url": "https://www.youtube.com/watch?v=57fVhCKtxSI"
+		},
+		"riunione-di-condominio": {
+			"title": "La riunione di condominio",
+			"url": "https://www.youtube.com/watch?v=CaR0v0rA6fI"
+		},
+		"chi-e-lo-stronzo": {
+			"title": "Chi è lo stronzo?",
+			"url": "https://www.youtube.com/watch?v=ZYMh21u3ADY"
+		},
+		"scapoli-ammogliati": {
+			"title": "Scapoli contro ammogliati",
+			"url": "https://www.youtube.com/watch?v=k0zBETPjRPQ"
+		},
+		"cernia": {
+			"title": "La cernia surgelata",
+			"url": "https://www.youtube.com/watch?v=6SUx6CltaY8"
+		},
+		"bicicletta": {
+			"title": "Allenamento in bicicletta",
+			"url": "https://www.youtube.com/watch?v=Z62znu4GCLo"
+		},
+		"tu-mancia": {
+			"title": "Tu mancia?",
+			"url": "https://www.youtube.com/watch?v=BJ-795Xvtdg"
+		},
+		"caccia": {
+			"title": "A caccia con Filini",
+			"url": "https://www.youtube.com/watch?v=hhWCr0nVzXI"
+		},
+		"vadi-a-fare-in-culo": {
+			"title": "Vadi a fare in culo",
+			"url": "https://www.youtube.com/watch?v=05zXUlZ1elQ"
+		},
+		"varo": {
+			"title": "Varo della nave (vadi contessa, vadi)",
+			"url": "https://www.youtube.com/watch?v=J5_TVKknof0"
+		},
+		"ventilatio": {
+			"title": "Ventilatio intestinalis putres",
+			"url": "https://www.youtube.com/watch?v=H6rCFUQAJcE"
+		},
+		"calcio": {
+			"title": "Filini sul calcio",
+			"url": "https://www.youtube.com/watch?v=Eim2lMjk8io"
+		},
+		"elezioni": {
+			"title": "Le elezioni",
+			"url": "https://www.youtube.com/watch?v=fLl0NYMCwyA"
+		},
+		"assenteismo": {
+			"title": "L'assenteismo",
+			"url": "https://www.youtube.com/watch?v=M3VkfbV-VfA"
 		}
 	}
 }
