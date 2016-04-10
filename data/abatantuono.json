@@ -1,25 +1,85 @@
 {
 	"title": "Abatantuono",
 	"videos": {
+		"alex": {
+			"title": "Alex, il fratello del Ras",
+			"url": "https://www.youtube.com/watch?v=Y7JvUZhyQ1E"
+		},
+		"arrivo-ad-avellino": {
+			"title": "Arrivo ad avellino",
+			"url": "https://www.youtube.com/watch?v=5afm1zxHvuM"
+		},
 		"attila": {
 			"title": "Attila, A come atrocità...",
 			"url": "https://www.youtube.com/watch?v=S-_5rbFSEkg"
+		},
+		"corsia-preferenziale": {
+			"title": "Corsia preferenziale",
+			"url": "https://www.youtube.com/watch?v=ryIBdseiyuI"
+		},
+		"dialetto": {
+			"title": "Questo ci dai un dito e si prende tutto l'inguine",
+			"url": "https://www.youtube.com/watch?v=j0FhHmEIS60"
+		},
+		"eccezziunale-veramente": {
+			"title": "Eccezziunale veramente",
+			"url": "https://www.youtube.com/watch?v=YmpC8hh9EI4"
+		},
+		"fioraio": {
+			"title": "Il fioraio",
+			"url": "https://www.youtube.com/watch?v=hArjhGNABt0"
+		},
+		"gulash": {
+			"title": "Gulash gulash, in gulash a mammat",
+			"url": "https://www.youtube.com/watch?v=OB2eQdYmXoc"
+		},
+		"mago-di-segrate": {
+			"title": "Mago di Segrate",
+			"url": "https://www.youtube.com/watch?v=aUr--0QNngM"
+		},
+		"mare": {
+			"title": "L'isola dei frocifemi",
+			"url": "https://www.youtube.com/watch?v=ckK-r1V_YxI"
+		},
+		"moglie-e-suocera": {
+			"title": "Moglie strega, Suocera stronza (tredici)",
+			"url": "https://www.youtube.com/watch?v=5N808Ov0Yq8"
+		},
+		"parole-crociate": {
+			"title": "Parole crociate",
+			"url": "https://www.youtube.com/watch?v=2uNasmWdDeA"
 		},
 		"polpette": {
 			"title": "Polpette di merda",
 			"url": "https://www.youtube.com/watch?v=RuYtQKda5G0"
 		},
+		"ras-della-fossa": {
+			"title": "Il Ras della fossa",
+			"url": "https://www.youtube.com/watch?v=UmyIg0109_0"
+		},
 		"risveglio": {
 			"title": "Risveglio",
 			"url": "https://www.youtube.com/watch?v=_P2hU77-L2A"
+		},
+		"salone-automobile": {
+			"title": "Contento? Contento un bel cazzo (salone automobile)",
+			"url": "https://www.youtube.com/watch?v=8yxYFyXqoyQ"
 		},
 		"scusa": {
 			"title": "Scusa se è poco",
 			"url": "https://www.youtube.com/watch?v=bd5a13LdauY"
 		},
+		"sfilatino": {
+			"title": "Sfiloncino, sfilatino... ce lo metto nel sacchetto? (diabolico nell'amplesso)",
+			"url": "https://www.youtube.com/watch?v=PxyhRdk-nj4"
+		},
 		"slavo": {
 			"title": "Slavo, brava gente",
 			"url": "https://www.youtube.com/watch?v=BONQZ4hNdQM"
+		},
+		"vaccino": {
+			"title": "Vaccino contro la stronzaggine",
+			"url": "https://www.youtube.com/watch?v=b1sNZu6RSAw"
 		},
 		"vattene-affanculo": {
 			"title": "Primo vattene affanculo, secondo restaci",
