@@ -16,7 +16,7 @@ var videos = [].concat.apply([], categories.map(key => {
 }));
 
 
-function validate(video, videos){
+function validateVideos(video, videos){
   console.log('VALIDATING: '.bold + video.category.toUpperCase() + ' ' +video.title);
   request(`http://noembed.com/embed?url=${video.url}`, function(err, res, body) {
     if( err || JSON.parse(body).error ) {
@@ -26,14 +26,34 @@ function validate(video, videos){
     } else {
       console.log(` GREAT: ${video.url}`.green);
       if (videos.length){
-        validate(videos.shift(), videos);
+        validateVideos(videos.shift(), videos);
       } else {
         console.log(`\nALL GOOD!`.bold.green);
-        process.exit(0);
       }
     }
   });
 }
 
+function validateGifs(videos){
+  console.log('VALIDATING GIF HTTPS'.bold);
 
-validate(videos.shift(), videos);
+  var invalidGifs = videos.filter(function(video){
+    return video.gif &&
+      !/^(https:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?.gif$/.test(video.gif);
+  });
+  if (invalidGifs.length){
+    console.error(` HTTPS FAILED:
+      ${invalidGifs.map(
+        function(video){
+          return video.title.white.bold + '\n      ' + video.gif.red + '\n';
+        })
+      }`.red.bold
+    );
+    process.exit(1);
+  } else {
+    console.log(`ALL GOOD! \n`.bold.green);
+  }
+}
+
+validateGifs(videos);
+validateVideos(videos.shift(), videos);

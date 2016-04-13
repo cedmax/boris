@@ -8,7 +8,7 @@
     "fix": "scripts/sort-json.sh && jscs -x ./*.js assets/js",
     "validate": "jsonlint data/*.json --quiet && eslint ./*.js assets/js",
     "test": "npm run fix && npm run validate",
-    "test-all": "npm test && node scripts/test-videos",
+    "test-all": "npm test && node scripts/test-content",
     "bundle": "jspm bundle-sfx -m js/main assets/bundle.js"
   },
   "author": "",
