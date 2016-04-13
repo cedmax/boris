@@ -25,7 +25,7 @@ export default class VideoCard extends React.Component {
             'width': '100%',
             'height': '100%'
           }}
-          src={'http://www.youtube.com/embed/' + videoId + '?autoplay=1&showinfo=0&rel=0'}
+          src={'https://www.youtube.com/embed/' + videoId + '?autoplay=1&showinfo=0&rel=0'}
           allowFullScreen="allowFullScreen"
         ></iframe>
       </div>
