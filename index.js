@@ -16,6 +16,7 @@ jspm.setPackagePath( './' );
 
 var app = express();
 
+app.enable('trust proxy');
 app.set( 'view engine', 'html' );
 app.set( 'views', __dirname + '/views' );
 app.enable( 'view cache' );
