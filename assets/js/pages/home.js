@@ -19,8 +19,9 @@ export default class Home extends React.Component {
               position: 'relative',
               marginBottom: '1%',
               cursor: 'pointer',
-              height: '32%',
-              background: `url(/img/${category}.jpg) no-repeat center / cover`
+              height: '49%',
+              background: `url(/img/${category}.jpg) no-repeat center / cover`,
+              width: '49.5%'
             }}>
             <CardMedia
               style={{ height: '100%' }}
@@ -41,7 +42,11 @@ export default class Home extends React.Component {
         right: '1%',
         left: '1%',
         top: 'calc(1% + 70px)',
-        bottom: '1%'
+        bottom: '1%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
       }}>
         { cards }
       </div>
