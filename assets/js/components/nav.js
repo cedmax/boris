@@ -1,6 +1,5 @@
 import React from 'react';
 import AppBar from 'material-ui/lib/app-bar';
-import IconButton from 'material-ui/lib/icon-button';
 import HelpOutlineIcon from 'material-ui/lib/svg-icons/action/help-outline';
 import MenuIcon from 'material-ui/lib/svg-icons/navigation/menu';
 import ControlPointIcon from 'material-ui/lib/svg-icons/image/control-point';
@@ -8,6 +7,7 @@ import LeftNav from 'material-ui/lib/left-nav';
 import Dialog from 'material-ui/lib/dialog';
 import Menu from 'js/components/menu';
 import SubmitDialog from 'js/components/submit-dialog';
+import FlatButton from 'material-ui/lib/flat-button';
 
 export default class Nav extends React.Component {
   constructor( props ) {
@@ -45,21 +45,47 @@ export default class Nav extends React.Component {
   }
 
   render() {
+    var menuStyle = {
+      button: {
+        padding: '5px 0',
+        minWidth: 'auto'
+      },
+      icon: '#fff',
+      label: {
+        color: '#fff',
+        display: 'block',
+        fontSize: '70%',
+        lineHeight: 1.5
+      }
+    };
+
     var dialogIcons = (
       <div>
-        <IconButton onClick={this.handleOpenSubmitDialog}>
-          <ControlPointIcon color="#fff" />
-        </IconButton>
-        <IconButton onClick={this.handleOpenDialog}>
-          <HelpOutlineIcon color="#fff" />
-        </IconButton>
+        <FlatButton
+          style={menuStyle.button}
+          onClick={this.handleOpenSubmitDialog}
+          label="Add"
+          labelStyle={menuStyle.label}>
+          <ControlPointIcon color={menuStyle.icon} />
+        </FlatButton>
+        <FlatButton
+          style={menuStyle.button}
+          onClick={this.handleOpenDialog}
+          label="About"
+          labelStyle={menuStyle.label}>
+          <HelpOutlineIcon color={menuStyle.icon} />
+        </FlatButton>
       </div>
     );
 
     var menuIcon = (
-      <IconButton onClick={this.handleToggleMenu}>
-        <MenuIcon />
-      </IconButton>
+      <FlatButton
+        style={menuStyle.button}
+        labelStyle={menuStyle.label}
+        label="Menu"
+        onClick={this.handleToggleMenu}>
+        <MenuIcon color={menuStyle.icon} />
+      </FlatButton>
     );
 
     let menu;
