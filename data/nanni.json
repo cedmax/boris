@@ -5,11 +5,17 @@
 			"title": "Sono un comunista",
 			"url": "https://www.youtube.com/watch?v=K85UMUIsGX4"
 		},
+		"di-sinistra": {
+			"quick": true,
+			"title": "D'Alema dì una cosa di sinistra",
+			"url": "https://www.youtube.com/watch?v=7a3Ny_fbUwk"
+		},
 		"e-ti-vengo-a-cercare": {
 			"title": "E ti vengo a cercare",
 			"url": "https://www.youtube.com/watch?v=HoRG1PinjaA"
 		},
 		"facciamoci-male": {
+			"quick": true,
 			"title": "Continuiamo così, facciamoci del male",
 			"url": "https://www.youtube.com/watch?v=GqNEqmMhN20"
 		},
@@ -28,10 +34,6 @@
 		"silvia": {
 			"title": "Come sta la Silvia? (Cacare, non cacare)",
 			"url": "https://www.youtube.com/watch?v=lsXf1UcOx_Y"
-		},
-		"una-di-sinistra": {
-			"title": "D'Alema dì una cosa di sinistra",
-			"url": "https://www.youtube.com/watch?v=7a3Ny_fbUwk"
 		},
 		"vedo-gente": {
 			"title": "Faccio cose, Vedo gente",
