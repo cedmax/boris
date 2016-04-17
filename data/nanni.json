@@ -1,0 +1,49 @@
+{
+	"title": "Nanni Moretti",
+	"videos": {
+		"comunista": {
+			"title": "Sono un comunista",
+			"url": "https://www.youtube.com/watch?v=K85UMUIsGX4"
+		},
+		"e-ti-vengo-a-cercare": {
+			"title": "E ti vengo a cercare",
+			"url": "https://www.youtube.com/watch?v=HoRG1PinjaA"
+		},
+		"facciamoci-male": {
+			"title": "Continuiamo così, facciamoci del male",
+			"url": "https://www.youtube.com/watch?v=GqNEqmMhN20"
+		},
+		"fonzie": {
+			"title": "Va bene, non c'entra. Però c'entra (Fonzie, come formazione politica e culturale)",
+			"url": "https://www.youtube.com/watch?v=RpBJIfNMjAI"
+		},
+		"giornali": {
+			"title": "I giornali sono uguali",
+			"url": "https://www.youtube.com/watch?v=c3bffaURQpA"
+		},
+		"la-prima-canna": {
+			"title": "Per la prima volta in vita mia mi feci una canna",
+			"url": "https://www.youtube.com/watch?v=RUwfyh-BFoc"
+		},
+		"silvia": {
+			"title": "Come sta la Silvia? (Cacare, non cacare)",
+			"url": "https://www.youtube.com/watch?v=lsXf1UcOx_Y"
+		},
+		"una-di-sinistra": {
+			"title": "D'Alema dì una cosa di sinistra",
+			"url": "https://www.youtube.com/watch?v=7a3Ny_fbUwk"
+		},
+		"vedo-gente": {
+			"title": "Faccio cose, Vedo gente",
+			"url": "https://www.youtube.com/watch?v=Vg2LYGr6Yuw"
+		},
+		"vengo-o-non-vengo": {
+			"title": "Mi si nota di più se vengo o se non vengo",
+			"url": "https://www.youtube.com/watch?v=yaiH2lGIvVw"
+		},
+		"voglia-di-litigare": {
+			"title": "Ho voglia di litigare con qualcuno",
+			"url": "https://www.youtube.com/watch?v=uPOVBaFMD3M"
+		}
+	}
+}
