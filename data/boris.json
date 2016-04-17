@@ -2,6 +2,7 @@
 	"title": "Boris",
 	"videos": {
 		"a-cazzo-di-cane-[1]": {
+			"quick": true,
 			"title": "A cazzo di cane",
 			"url": "https://www.youtube.com/watch?v=rqHDvEjdPrM"
 		},
@@ -11,6 +12,7 @@
 			"url": "https://www.youtube.com/watch?v=2fAfsZZde3U"
 		},
 		"attaccate-ar-cazzo": {
+			"quick": true,
 			"title": "Attaccate ar cazzo",
 			"url": "https://www.youtube.com/watch?v=pm2_yj5ycgw"
 		},
@@ -19,6 +21,7 @@
 			"url": "https://www.youtube.com/watch?v=E8AmAruWAm0"
 		},
 		"bucio-de-culo": {
+			"quick": true,
 			"title": "Bucio de culo",
 			"url": "https://www.youtube.com/watch?v=0bP5wEcucZA"
 		},
@@ -40,11 +43,13 @@
 			"url": "https://www.youtube.com/watch?v=bCBGzLnRKec"
 		},
 		"crucchi-demmerda": {
+			"quick": true,
 			"title": "Crucchi demmerda",
 			"url": "https://www.youtube.com/watch?v=k8C2P5VZY-o"
 		},
 		"dai-dai-dai": {
 			"gif": "https://media.giphy.com/media/3oEduXyAD6AIUeNVMA/giphy.gif",
+			"quick": true,
 			"title": "Dai dai dai!",
 			"url": "https://www.youtube.com/watch?v=OonMoTN4sH8"
 		},
@@ -85,6 +90,7 @@
 			"url": "https://www.youtube.com/watch?v=GUoLzheO6gA"
 		},
 		"mito": {
+			"quick": true,
 			"title": "Mito, Genio",
 			"url": "https://www.youtube.com/watch?v=hIsdTpJaBJk"
 		},
@@ -93,15 +99,18 @@
 			"url": "https://www.youtube.com/watch?v=BG7QTDaWQKY"
 		},
 		"mori": {
+			"quick": true,
 			"title": "Magari mori",
 			"url": "https://www.youtube.com/watch?v=pnFY8x52DjI"
 		},
 		"muto": {
+			"quick": true,
 			"title": "Devi stare muto!",
 			"url": "https://www.youtube.com/watch?v=lyMWUKtYTbU"
 		},
 		"qualita": {
 			"gif": "https://49.media.tumblr.com/3913a47a3ca6fe28653ab953aaeea21a/tumblr_o5l80jcrAH1ugccnyo1_400.gif",
+			"quick": true,
 			"title": "La qualità c'ha rotto er cazzo, viva la merda",
 			"url": "https://www.youtube.com/watch?v=96x2pjWoTCY"
 		},
@@ -119,6 +128,7 @@
 		},
 		"sticazzi": {
 			"gif": "https://media.giphy.com/media/xTiTngOFSzuwpnUbGo/giphy.gif",
+			"quick": true,
 			"title": "Sticazzi",
 			"url": "https://www.youtube.com/watch?v=b-OpI6u7G7U"
 		},
@@ -128,6 +138,7 @@
 			"url": "https://www.youtube.com/watch?v=PLS-mBeeN8U"
 		},
 		"testa-di-cazzo": {
+			"quick": true,
 			"title": "Testa di cazzo",
 			"url": "https://www.youtube.com/watch?v=JIM_t6DIJnM"
 		},

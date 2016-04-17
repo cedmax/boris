@@ -1,8 +1,28 @@
 var express = require( 'express' );
 var requiredir = require( 'requiredir' );
-var data = requiredir( './data' );
-delete data.length;
+var data = {};
+data.categories = requiredir( './data' );
+delete data.categories.length; delete data.categories.toArray;
 
+var _ = require( 'lodash' );
+
+
+function findQuickResponses( data ) {
+  return _.reduce(
+    _.map(
+      _.keys( data ),
+      ( itemKey ) => _.mapValues(
+        _.pickBy( data[ itemKey ].videos, 'quick' ),
+        video => _.assign( video, {
+          category: itemKey
+        } )
+      )
+    ),
+    _.assign
+  );
+}
+
+data.quickReplies = findQuickResponses( data.categories );
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
@@ -30,8 +50,8 @@ jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
   function render( req, res, category, selected ) {
-    var currentSection = data[ category ].title;
-    var currentData = data[ category ].videos;
+    var currentSection = data.categories[ category ].title;
+    var currentData = data.categories[ category ].videos;
 
     if ( selected && ! currentData[ selected ] ) {
       res.redirect( `/${category}` );
@@ -48,7 +68,7 @@ jspm.import( 'js/app' ).then( function( App ) {
         url: `${domain}/${category}` + ( selected ? `/${selected}` : '' ),
         dev: ( settings.env === 'dev' ),
         DOM: ReactDOMServer.renderToString( App( {
-          data: data,
+          data: data.categories,
           about: about,
           category: category,
           onCopyReady: function() {},
@@ -67,7 +87,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     var selected = req.params.pattern;
     var category = req.params.category;
 
-    if ( data[ category ] ) {
+    if ( data.categories[ category ] ) {
       render( req, res, category, selected );
     } else {
       res.redirect( '/' );
@@ -77,7 +97,7 @@ jspm.import( 'js/app' ).then( function( App ) {
   app.get( '/refresh/:key', function( req, res ) {
     var key = req.params.key;
     if ( key ) {
-      data[ key ] = hotload( `./data/${key}.json` );
+      data.categories[ key ] = hotload( `./data/${key}.json` );
       dataJSon = JSON.stringify( data );
       res.redirect( `/${key}` );
     } else {
@@ -97,7 +117,7 @@ jspm.import( 'js/app' ).then( function( App ) {
       url: domain + '/',
       dev: ( settings.env === 'dev' ),
       DOM: ReactDOMServer.renderToString( App( {
-        data: data,
+        data: data.categories,
         about: about
       } ))
     } );

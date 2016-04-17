@@ -7,17 +7,24 @@ export default class App extends React.Component {
   constructor( props ) {
     super( props );
 
-    this.menu = Object.keys( props.data ).map(( key ) => ( {
+    this.menu = {};
+    this.menu.categories = Object.keys( props.data ).map(( key ) => ( {
       key: key,
       value: props.data[ key ].title
     } ));
+    this.menu.replies = props.replies;
 
     this.showVideo = this.showVideo.bind( this );
-    this.navigateCategory = this.navigateCategory.bind( this );
+    this.menuNavigation = this.menuNavigation.bind( this );
   }
 
-  navigateCategory( category ) {
+  menuNavigation( category, selected ) {
     var data = this.props.data;
+
+    if ( selected && data[ category ] && data[ category ].videos[ selected ] ) {
+      this.props.navigateTo( category, selected );
+      return;
+    }
 
     if ( data[ category ] || ! category ) {
       this.props.navigateTo( category );
@@ -55,7 +62,7 @@ export default class App extends React.Component {
           title={sectionTitle || 'Trash Meme'}
           menu={this.menu}
           current={category || ''}
-          onMenuClick={this.navigateCategory}
+          onMenuClick={this.menuNavigation}
           staticContent={this.props.staticContent} />
         {content}
       </div>

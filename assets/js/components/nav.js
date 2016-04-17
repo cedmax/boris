@@ -94,11 +94,11 @@ export default class Nav extends React.Component {
         <Menu
           menu={this.props.menu}
           selected={this.props.current}
-          onClick={( menuKey )=> {
+          onClick={( menuKey, selection )=> {
             this.setState( {
               openMenu: false
             } );
-            this.props.onMenuClick( menuKey );
+            this.props.onMenuClick( menuKey, selection );
           }} />
       );
     }

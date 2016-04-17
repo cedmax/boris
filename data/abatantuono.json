@@ -66,6 +66,7 @@
 			"url": "https://www.youtube.com/watch?v=8yxYFyXqoyQ"
 		},
 		"scusa": {
+			"quick": true,
 			"title": "Scusa se è poco",
 			"url": "https://www.youtube.com/watch?v=bd5a13LdauY"
 		},
@@ -82,6 +83,7 @@
 			"url": "https://www.youtube.com/watch?v=b1sNZu6RSAw"
 		},
 		"vattene-affanculo": {
+			"quick": true,
 			"title": "Primo vattene affanculo, secondo restaci",
 			"url": "https://www.youtube.com/watch?v=xvHSUmp2qeA"
 		}

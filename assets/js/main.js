@@ -23,7 +23,8 @@ class Main extends React.Component {
     return (
       <App
         navigateTo={navigateTo}
-        data={data}
+        data={data.categories}
+        replies={data.quickReplies}
         category={this.props.params.category}
         selected={this.props.params.selected}
         format={this.props.params.format}
