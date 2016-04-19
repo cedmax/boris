@@ -6,7 +6,6 @@ delete data.categories.length; delete data.categories.toArray;
 
 var _ = require( 'lodash' );
 
-
 function findQuickResponses( data ) {
   return _.reduce(
     _.map(
@@ -22,7 +21,11 @@ function findQuickResponses( data ) {
   );
 }
 
-data.quickReplies = findQuickResponses( data.categories );
+data.quickReplies = {
+  title: 'Risposte Veloci',
+  videos: findQuickResponses( data.categories )
+};
+
 var settings = require( './settings.json' );
 var fs = require( 'fs' );
 var marked = require( 'marked' );
@@ -49,9 +52,9 @@ var about = marked( fs.readFileSync( './about.md', { encoding: 'utf8' } ));
 jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
-  function render( req, res, category, selected ) {
-    var currentSection = data.categories[ category ].title;
-    var currentData = data.categories[ category ].videos;
+  function render( req, res, categoryData, category, selected ) {
+    var currentSection = categoryData.title;
+    var currentData = categoryData.videos;
 
     if ( selected && ! currentData[ selected ] ) {
       res.redirect( `/${category}` );
@@ -68,6 +71,7 @@ jspm.import( 'js/app' ).then( function( App ) {
         url: `${domain}/${category}` + ( selected ? `/${selected}` : '' ),
         dev: ( settings.env === 'dev' ),
         DOM: ReactDOMServer.renderToString( App( {
+          replies: data.quickReplies,
           data: data.categories,
           about: about,
           category: category,
@@ -88,7 +92,9 @@ jspm.import( 'js/app' ).then( function( App ) {
     var category = req.params.category;
 
     if ( data.categories[ category ] ) {
-      render( req, res, category, selected );
+      render( req, res, data.categories[ category ], category, selected );
+    } else if ( category === 'r' ) {
+      render( req, res, data.quickReplies, category, selected );
     } else {
       res.redirect( '/' );
     }

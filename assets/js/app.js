@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from 'js/components/nav';
 import HomePage from 'js/pages/home';
 import Category from 'js/pages/category';
+import QuickReplies from 'js/pages/quick-replies';
 
 export default class App extends React.Component {
   constructor( props ) {
@@ -26,7 +27,7 @@ export default class App extends React.Component {
       return;
     }
 
-    if ( data[ category ] || ! category ) {
+    if ( data[ category ] || ! category || category === 'r' ) {
       this.props.navigateTo( category );
     }
   }
@@ -41,11 +42,19 @@ export default class App extends React.Component {
 
   render() {
     let category = this.props.category;
-    this.videos = this.props.data[ category ] &&
+    if ( category !== 'r' ) {
+      this.videos = this.props.data[ category ] &&
         this.props.data[ category ].videos;
-
+    } else {
+      this.videos = this.props.replies.videos;
+    }
     let content, sectionTitle;
-    if ( category ) {
+    if ( category === 'r' ) {
+      sectionTitle = this.props.replies.title;
+      content = (
+        <QuickReplies {...this.props} onVideoSelect={this.showVideo} />
+      );
+    } else if ( category ) {
       sectionTitle = this.props.data[ category ].title;
       content = (
         <Category {...this.props} onVideoSelect={this.showVideo} />

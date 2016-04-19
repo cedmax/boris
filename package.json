@@ -20,6 +20,7 @@
     "hogan-express": "0.5.2",
     "hotload": "0.0.5",
     "jspm": "0.16.31",
+    "lodash": "^4.11.1",
     "marked": "0.3.5",
     "postcss": "^4.1.16",
     "react": "0.14.7",
