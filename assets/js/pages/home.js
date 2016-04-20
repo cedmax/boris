@@ -5,11 +5,10 @@ import CardTitle from 'material-ui/lib/card/card-title';
 
 export default class Home extends React.Component {
   render() {
-    let cards = Object.keys( this.props.data )
-      .filter( category => this.props.data[ category ].videos )
+    var categories = this.props.data.categories;
+    let cards = Object.keys( categories )
       .map( ( category, i ) => {
-        let data = this.props.data[ category ];
-        let numOfVid = Object.keys( data.videos ).length;
+        let numOfVid = Object.keys( categories[ category ].videos ).length;
         let third = (( i + 1 ) <= 3 );
         return (
           <Card
@@ -27,7 +26,7 @@ export default class Home extends React.Component {
               style={{ height: '100%' }}
               overlay={
                 <CardTitle
-                  title={data.title}
+                  title={categories[ category ].title}
                   subtitle={<span><b>{numOfVid}</b> video</span>}
                 ></CardTitle>
             }>

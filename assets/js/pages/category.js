@@ -5,9 +5,10 @@ import MediaCard from 'js/components/mediacard';
 
 export default class App extends React.Component {
   render() {
-    let category = this.props.category;
-    this.sectionTitle = this.props.data[ category ].title;
-    this.data = this.props.data[ category ].videos;
+    let section = this.props.section;
+    let data = this.props.data.categories;
+    this.sectionTitle = data[ section ].title;
+    this.data = data[ section ].videos;
 
     let forceGif, selected = this.props.selected;
 
@@ -23,7 +24,7 @@ export default class App extends React.Component {
 
     return (
       <div style={{
-        background: `url(/img/${category}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
+        background: `url(/img/${section}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
         position: 'absolute',
         height: '100%',
         width: '100%'
@@ -32,7 +33,7 @@ export default class App extends React.Component {
           <AutoComplete
             dropDownHeight={this.props.dropDownHeight}
             value={videoTitle}
-            category={category}
+            section={section}
             data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
             onSelect={this.props.onVideoSelect} />
         </Container>

@@ -9,59 +9,47 @@ export default class App extends React.Component {
     super( props );
 
     this.menu = {};
-    this.menu.categories = Object.keys( props.data ).map(( key ) => ( {
+    const categories = props.data.categories;
+    this.menu.categories = Object.keys(categories ).map(( key ) => ( {
       key: key,
-      value: props.data[ key ].title
+      value: categories[ key ].title
     } ));
-    this.menu.replies = props.replies;
+    this.menu.replies = props.data.r;
 
     this.showVideo = this.showVideo.bind( this );
-    this.menuNavigation = this.menuNavigation.bind( this );
-  }
-
-  menuNavigation( category, selected ) {
-    var data = this.props.data;
-
-    if ( selected && data[ category ] && data[ category ].videos[ selected ] ) {
-      this.props.navigateTo( category, selected );
-      return;
-    }
-
-    if ( data[ category ] || ! category || category === 'r' ) {
-      this.props.navigateTo( category );
-    }
   }
 
   showVideo( selected ) {
     var keys = Object.keys( this.videos );
     var sel = keys.filter( ( key ) => this.videos[ key ].title === selected );
     if ( sel.length ) {
-      this.props.navigateTo( this.props.category, sel[ 0 ] );
+      this.props.navigateTo( this.props.section, sel[ 0 ] );
     }
   }
 
   render() {
-    let category = this.props.category;
-    if ( category !== 'r' ) {
-      this.videos = this.props.data[ category ] &&
-        this.props.data[ category ].videos;
-    } else {
-      this.videos = this.props.replies.videos;
-    }
-    let content, sectionTitle;
-    if ( category === 'r' ) {
-      sectionTitle = this.props.replies.title;
+    let {
+      section,
+      data
+    } = this.props;
+
+    let sectionTitle, content;
+
+    if (data[section]) {
+      this.videos = data[ section ].videos;
+      sectionTitle = data[ section ].title;
       content = (
         <QuickReplies {...this.props} onVideoSelect={this.showVideo} />
       );
-    } else if ( category ) {
-      sectionTitle = this.props.data[ category ].title;
+    } else if (section) {
+      this.videos = data.categories[section].videos;
+      sectionTitle = data.categories[section].title;
       content = (
         <Category {...this.props} onVideoSelect={this.showVideo} />
       );
     } else {
       content = (
-        <HomePage data={this.props.data} onClick={this.navigateCategory} />
+        <HomePage data={this.props.data} onClick={this.props.navigateTo} />
       );
     }
 
@@ -70,9 +58,9 @@ export default class App extends React.Component {
         <Nav
           title={sectionTitle || 'Trash Meme'}
           menu={this.menu}
-          current={category || ''}
-          onMenuClick={this.menuNavigation}
-          staticContent={this.props.staticContent} />
+          current={section || ''}
+          onMenuClick={ this.props.navigateTo }
+          staticContent={this.props.data.about} />
         {content}
       </div>
     );

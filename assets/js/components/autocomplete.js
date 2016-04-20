@@ -11,6 +11,12 @@ export default class BorisAutoComplete extends React.Component {
     };
   }
 
+  onFocus() {
+    this.setState( {
+      searchText: ''
+    } );
+  }
+
   handleUpdateInput( text ) {
     this.setState( {
       searchText: text
@@ -27,14 +33,6 @@ export default class BorisAutoComplete extends React.Component {
       category,
       searchText: ''
     } );
-  }
-
-  shouldComponentUpdate( nextProp, nextState ) {
-    if ( nextProp.category !== nextState.category ) {
-      this.handleChangeCategory( nextProp.category );
-      return false;
-    }
-    return true;
   }
 
   render() {
@@ -57,6 +55,7 @@ export default class BorisAutoComplete extends React.Component {
         margin: 'auto'
       }}>
         <AutoComplete
+          onFocus={ this.onFocus.bind( this ) }
           menuProps={menuProps}
           id={`search-${this.props.category}`}
           searchText={this.state.searchText}

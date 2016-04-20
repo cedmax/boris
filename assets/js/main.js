@@ -11,7 +11,8 @@ const data = JSON.parse( document.getElementById( 'data' ).innerHTML );
 
 function navigateTo() {
   let args = Array.prototype.slice.call( arguments );
-  browserHistory.push( '/' + args.join( '/' ));
+
+  browserHistory.push( '/' + (args.length?args.join( '/' ):''));
 }
 
 function getAvailableDropDownSpace() {
@@ -23,16 +24,14 @@ class Main extends React.Component {
     return (
       <App
         navigateTo={navigateTo}
-        data={data.categories}
-        replies={data.quickReplies}
-        category={this.props.params.category}
+        data={data}
+        section={this.props.params.category}
         selected={this.props.params.selected}
         format={this.props.params.format}
         onCopyReady={function( selector ) {
           new ClipBoard( selector );
         }}
         dropDownHeight={getAvailableDropDownSpace()}
-        staticContent={document.getElementById( 'about' ).innerHTML}
         />
     );
   }

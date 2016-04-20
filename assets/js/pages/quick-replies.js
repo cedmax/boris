@@ -5,8 +5,8 @@ import MediaCard from 'js/components/mediacard';
 
 export default class App extends React.Component {
   render() {
-    this.sectionTitle = this.props.replies.videos;
-    this.data = this.props.replies.videos;
+    const replies = this.props.data.r;
+    const videos = replies.videos;
 
     let forceGif, selected = this.props.selected;
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
         url: videoUrl,
         gif: gifUrl,
         category: category
-      } = this.data[ selected ];
+      } = videos[ selected ];
 
       forceGif = ( this.props.format === 'gif' );
     }
@@ -33,7 +33,7 @@ export default class App extends React.Component {
             dropDownHeight={this.props.dropDownHeight}
             value={videoTitle}
             category={category}
-            data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
+            data={ Object.keys( videos ).map( key => videos[ key ].title ) }
             onSelect={this.props.onVideoSelect} />
         </Container>
         <MediaCard
