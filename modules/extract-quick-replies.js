@@ -7,7 +7,7 @@ module.exports = function( data ) {
       ( itemKey ) => _.mapValues(
         _.pickBy( data[ itemKey ].videos, 'quick' ),
         video => _.assign( video, {
-          category: itemKey
+          category: (itemKey==='hidden') ? 'r': itemKey
         } )
       )
     ),

@@ -12,7 +12,7 @@ const data = JSON.parse( document.getElementById( 'data' ).innerHTML );
 function navigateTo() {
   let args = Array.prototype.slice.call( arguments );
 
-  browserHistory.push( '/' + (args.length?args.join( '/' ):''));
+  browserHistory.push( '/' + ( args.length ? args.join( '/' ) : '' ));
 }
 
 function getAvailableDropDownSpace() {

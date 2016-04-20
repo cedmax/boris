@@ -10,7 +10,7 @@ export default class App extends React.Component {
 
     this.menu = {};
     const categories = props.data.categories;
-    this.menu.categories = Object.keys(categories ).map(( key ) => ( {
+    this.menu.categories = Object.keys( categories ).map(( key ) => ( {
       key: key,
       value: categories[ key ].title
     } ));
@@ -35,15 +35,15 @@ export default class App extends React.Component {
 
     let sectionTitle, content;
 
-    if (data[section]) {
+    if ( data[ section ] ) {
       this.videos = data[ section ].videos;
       sectionTitle = data[ section ].title;
       content = (
         <QuickReplies {...this.props} onVideoSelect={this.showVideo} />
       );
-    } else if (section) {
-      this.videos = data.categories[section].videos;
-      sectionTitle = data.categories[section].title;
+    } else if ( section ) {
+      this.videos = data.categories[ section ].videos;
+      sectionTitle = data.categories[ section ].title;
       content = (
         <Category {...this.props} onVideoSelect={this.showVideo} />
       );

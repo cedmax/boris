@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require( 'express' );
-var mapData = require('./modules/map-data');
+var mapData = require( './modules/map-data' );
 
 var hotload = require( 'hotload' );
 var React = require( 'react' );
@@ -18,9 +18,9 @@ app.engine( 'html', require( 'hogan-express' ));
 app.use( express.static( __dirname + '/assets' ));
 //data handling
 var settings = require( './settings.json' );
-var data = mapData('./data', {
+var data = mapData( './data', {
   about: './about.md'
-});
+} );
 
 //jspm dependencies loading
 var jspm = require( 'jspm' );
@@ -29,16 +29,16 @@ jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
   function render( req, res, section, selected ) {
-    var title = (data[section] || data.categories[section]).title;
-    var video = (data[section] || data.categories[section]).videos;
+    var title = ( data[ section ] || data.categories[ section ] ).title;
+    var video = ( data[ section ] || data.categories[ section ] ).videos;
 
     if ( selected && ! video[ selected ] ) {
       res.redirect( `/${section}` );
     } else {
       const domain = req.protocol + '://' + req.get( 'host' );
       let sectionUrl = section;
-      if (data[section] && data[section].videos[selected]){
-        sectionUrl = data[section].videos[selected].category;
+      if ( data[ section ] && data[ section ].videos[ selected ] ) {
+        sectionUrl = data[ section ].videos[ selected ].category;
       }
       const url = `${domain}/${sectionUrl}` + ( selected ? `/${selected}` : '' );
 
@@ -98,7 +98,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     var resource = req.params.resource;
     var section = req.params.section;
 
-    if ( data[section] || data.categories[ section ] ) {
+    if ( data[ section ] || data.categories[ section ] ) {
       render( req, res, section, resource );
     } else {
       res.redirect( '/' );
