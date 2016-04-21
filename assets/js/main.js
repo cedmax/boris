@@ -23,27 +23,42 @@ class Main extends React.Component {
   render() {
     return (
       <App
-        navigateTo={navigateTo}
-        data={data}
-        section={this.props.params.section}
-        selected={this.props.params.selected}
-        format={this.props.params.format}
-        onCopyReady={function( selector ) {
+        navigateTo={ navigateTo }
+        data={ data }
+        section={ this.props.params.section }
+        selected={ this.props.params.selected }
+        format={ this.props.params.format }
+        onCopyReady={ function( selector ) {
           new ClipBoard( selector );
-        }}
-        dropDownHeight={getAvailableDropDownSpace()}
-        />
+        } }
+        dropDownHeight={ getAvailableDropDownSpace() }
+      />
     );
   }
 }
 
 ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path="/" >
-      <IndexRoute component={Main} />
-      <Route path="/:section" component={Main}/>
-      <Route path="/:section/:selected" component={Main}/>
-      <Route path="/:section/:selected/:format" component={Main}/>
+  <Router
+    history={ browserHistory }
+  >
+    <Route
+      path="/"
+    >
+      <IndexRoute
+        component={ Main }
+      />
+      <Route
+        path="/:section"
+        component={ Main }
+      />
+      <Route
+        path="/:section/:selected"
+        component={ Main }
+      />
+      <Route
+        path="/:section/:selected/:format"
+        component={ Main }
+      />
     </Route>
   </Router>
 ), document.getElementById( 'app' ));

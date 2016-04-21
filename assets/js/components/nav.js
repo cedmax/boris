@@ -47,44 +47,51 @@ export default class Nav extends React.Component {
   render() {
     var menuStyle = {
       button: {
-        padding: '5px 0',
-        minWidth: 'auto'
+        'padding': '5px 0',
+        'minWidth': 'auto'
       },
       icon: '#fff',
       label: {
-        color: '#fff',
-        display: 'block',
-        fontSize: '70%',
-        lineHeight: 1.5
+        'color': '#fff',
+        'display': 'block',
+        'fontSize': '70%',
+        'lineHeight': 1.5
       }
     };
 
     var dialogIcons = (
       <div>
         <FlatButton
-          style={menuStyle.button}
-          onClick={this.handleOpenSubmitDialog}
+          style={ menuStyle.button }
+          onClick={ this.handleOpenSubmitDialog }
           label="Add"
-          labelStyle={menuStyle.label}>
-          <ControlPointIcon color={menuStyle.icon} />
+          labelStyle={ menuStyle.label} >
+          <ControlPointIcon
+            color={ menuStyle.icon}
+          />
         </FlatButton>
         <FlatButton
-          style={menuStyle.button}
-          onClick={this.handleOpenDialog}
+          style={ menuStyle.button }
+          onClick={ this.handleOpenDialog }
           label="About"
-          labelStyle={menuStyle.label}>
-          <HelpOutlineIcon color={menuStyle.icon} />
+          labelStyle={ menuStyle.label} >
+          <HelpOutlineIcon
+            color={ menuStyle.icon}
+          />
         </FlatButton>
       </div>
     );
 
     var menuIcon = (
       <FlatButton
-        style={menuStyle.button}
-        labelStyle={menuStyle.label}
+        style={ menuStyle.button }
+        labelStyle={ menuStyle.label }
         label="Menu"
-        onClick={this.handleToggleMenu}>
-        <MenuIcon color={menuStyle.icon} />
+        onClick={ this.handleToggleMenu}
+      >
+        <MenuIcon
+          color={ menuStyle.icon}
+        />
       </FlatButton>
     );
 
@@ -92,14 +99,15 @@ export default class Nav extends React.Component {
     if ( this.state.openMenu ) {
       menu = (
         <Menu
-          menu={this.props.menu}
-          selected={this.props.current}
-          onClick={( menuKey, selection )=> {
+          menu={ this.props.menu }
+          selected={ this.props.current }
+          onClick={ ( menuKey, selection )=> {
             this.setState( {
               openMenu: false
             } );
             this.props.onMenuClick( menuKey, selection );
-          }} />
+          } }
+        />
       );
     }
 
@@ -111,29 +119,33 @@ export default class Nav extends React.Component {
     return (
       <div>
         <AppBar
-          iconElementLeft={menuIcon}
-          iconElementRight={dialogIcons}
-          title={this.props.title} />
-          <Dialog
-             title="About"
-             modal={false}
-             autoScrollBodyContent={true}
-             open={this.state.openDialog}
-             onRequestClose={this.handleCloseDialog}
-             >
-             <div dangerouslySetInnerHTML={{ __html: this.props.staticContent }}></div>
-           </Dialog>
-          <Dialog
-            modal={false}
-            open={this.state.openSubmitDialog}
-            onRequestClose={this.handleCloseSubmitDialog}>
-           {submitDialog}
-          </Dialog>
+          iconElementLeft={ menuIcon }
+          iconElementRight={ dialogIcons }
+          title={ this.props.title}
+        />
+        <Dialog
+          title="About"
+          modal={ false }
+          autoScrollBodyContent={ true }
+          open={ this.state.openDialog }
+          onRequestClose={ this.handleCloseDialog }
+        >
+          <div
+            dangerouslySetInnerHTML={ { __html: this.props.staticContent } }
+          ></div>
+        </Dialog>
+        <Dialog
+          modal={ false }
+          open={ this.state.openSubmitDialog }
+          onRequestClose={ this.handleCloseSubmitDialog} >
+          { submitDialog }
+        </Dialog>
         <LeftNav
-          docked={false}
-          onRequestChange={openMenu => this.setState( { openMenu } )}
-          open={this.state.openMenu}>
-          {menu}
+          docked={ false }
+          onRequestChange={ openMenu => this.setState( { openMenu } ) }
+          open={ this.state.openMenu }
+        >
+          { menu }
         </LeftNav>
       </div>
     );

@@ -29,30 +29,34 @@ export default class NavMenu extends React.Component {
       let disabled = ( menuItem.key === this.props.selected );
       return (
         <MenuItem
-          disabled={disabled}
-          key={menuItem.key}
-          onClick={this.onClick( disabled, menuItem.key )}>
-          {menuItem.value}
+          disabled={ disabled }
+          key={ menuItem.key }
+          onClick={ this.onClick( disabled, menuItem.key ) }
+        >
+          { menuItem.value }
         </MenuItem> );
     } );
 
     return (
       <List>
         <MenuItem
-          disabled={homeDisabled}
-          onClick={this.onClick( homeDisabled, '' )} >
+          disabled={ homeDisabled }
+          onClick={ this.onClick( homeDisabled, '' ) }
+        >
           Home
         </MenuItem>
         <MenuItem
-          disabled={repliesDisabled}
-          onClick={this.onClick( repliesDisabled, 'r' )}>
+          disabled={ repliesDisabled }
+          onClick={ this.onClick( repliesDisabled, 'r' ) }
+        >
           Risposte Veloci
         </MenuItem>
         <ListItem
           primaryText="Sezioni"
-          initiallyOpen={true}
-          primaryTogglesNestedList={true}
-          nestedItems={categoriesMenu} />
+          initiallyOpen={ true }
+          primaryTogglesNestedList={ true }
+          nestedItems={ categoriesMenu }
+        />
       </List>
     );
   }

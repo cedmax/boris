@@ -56,23 +56,26 @@ export default class BorisAutoComplete extends React.Component {
     }
 
     return (
-      <div style={{
-        minWidth: '250px',
-        width: '40%',
-        margin: 'auto'
-      }}>
+      <div
+        style={ {
+          'minWidth': '250px',
+          'width': '40%',
+          'margin': 'auto'
+        }}
+      >
         <AutoComplete
           onFocus={ this.onFocus.bind( this ) }
-          menuProps={menuProps}
-          id={`search-${this.props.section}`}
-          searchText={this.state.searchText}
-          fullWidth={true}
-          hintText={placeHolder}
-          dataSource={this.props.data}
-          filter={AutoComplete.caseInsensitiveFilter}
-          openOnFocus={true}
-          onUpdateInput={this.handleUpdateInput.bind( this )}
-          onNewRequest={this.handleSelect.bind( this )} />
+          menuProps={ menuProps }
+          id={ `search-${this.props.section}` }
+          searchText={ this.state.searchText }
+          fullWidth={ true }
+          hintText={ placeHolder }
+          dataSource={ this.props.data }
+          filter={ AutoComplete.caseInsensitiveFilter }
+          openOnFocus={ true }
+          onUpdateInput={ this.handleUpdateInput.bind( this ) }
+          onNewRequest={ this.handleSelect.bind( this ) }
+        />
       </div>
     );
   }

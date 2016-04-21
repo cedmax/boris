@@ -38,11 +38,11 @@ export default class MediaCard extends React.Component {
     }
 
     let styles = {
-      position: 'absolute',
-      top: 'calc(25% + 200px)',
-      left: '50%',
-      transform: 'translate3D(-50%,-50%,0)',
-      width: '80vmin'
+      'position': 'absolute',
+      'top': 'calc(25% + 200px)',
+      'left': '50%',
+      'transform': 'translate3D(-50%,-50%,0)',
+      'width': '80vmin'
     };
 
     let alternateButton;
@@ -55,45 +55,57 @@ export default class MediaCard extends React.Component {
     if ( isGifEnabled && ! isGifVisible ) {
       alternateButton = (
         <Button
-          onClick={this.toggleGif}
+          onClick={ this.toggleGif }
           tooltip='Show the GIF instead'
-          icon={<GifIcon />}
+          icon={ <GifIcon /> }
         />
       );
     } else if ( isGifVisible ) {
       url = this.props.gifUrl;
       alternateButton = (
         <Button
-          onClick={this.toggleGif}
+          onClick={ this.toggleGif }
           tooltip='Show the video instead'
-          icon={<VideoIcon />}
+          icon={ <VideoIcon /> }
         />
       );
       media = (
-        <img title={this.props.title} src={url} />
+        <img
+          title={ this.props.title }
+          src={ url }
+        />
       );
     }
 
     let subtitle = (
-      <div style={{
-        'display': 'flex',
-        'alignItems': 'center'
-      }}>
+      <div
+        style={ {
+          'display': 'flex',
+          'alignItems': 'center'
+        }}
+      >
         {alternateButton}
 
         <CopyButton
-          toBeCopied={url}
-          onCopyReady={this.props.onCopyReady} />
-        <Link url={url} />
+          toBeCopied={ url }
+          onCopyReady={ this.props.onCopyReady }
+        />
+        <Link
+          url={ url }
+        />
       </div>
     );
 
     return (
-      <Card style={styles}>
+      <Card
+        style={ styles }
+      >
         <CardMedia>
-          {media}
+          { media }
         </CardMedia>
-        <CardTitle subtitle={subtitle} />
+        <CardTitle
+          subtitle={ subtitle }
+        />
       </Card>
     );
   }

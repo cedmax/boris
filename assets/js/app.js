@@ -38,29 +38,39 @@ export default class App extends React.Component {
       this.videos = data[ section ].videos;
       sectionTitle = data[ section ].title;
       content = (
-        <QuickReplies {...this.props} onVideoSelect={this.showVideo} />
+        <QuickReplies
+          { ...this.props }
+          onVideoSelect={ this.showVideo }
+        />
       );
     } else if ( section ) {
       this.videos = data.categories[ section ].videos;
       sectionTitle = data.categories[ section ].title;
       content = (
-        <Category {...this.props} onVideoSelect={this.showVideo} />
+        <Category
+          { ...this.props }
+          onVideoSelect={ this.showVideo }
+        />
       );
     } else {
       content = (
-        <HomePage data={this.props.data} onClick={this.props.navigateTo} />
+        <HomePage
+          data={ this.props.data }
+          onClick={ this.props.navigateTo }
+        />
       );
     }
 
     return (
       <div>
         <Nav
-          title={sectionTitle || 'Trash Meme'}
-          menu={this.menu}
-          current={section || ''}
+          title={ sectionTitle || 'Trash Meme' }
+          menu={ this.menu }
+          current={ section || '' }
           onMenuClick={ this.props.navigateTo }
-          staticContent={this.props.data.about} />
-        {content}
+          staticContent={ this.props.data.about }
+        />
+        { content }
       </div>
     );
   }

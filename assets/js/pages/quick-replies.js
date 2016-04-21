@@ -22,26 +22,27 @@ export default class App extends React.Component {
     }
 
     return (
-      <div style={{
-        background: `url(/img/${videoCategory || 'r'}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
-        position: 'absolute',
-        height: '100%',
-        width: '100%'
+      <div style={  {
+        'background': `url(/img/${videoCategory || 'r'}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
+        'position': 'absolute',
+        'height': '100%',
+        'width': '100%'
       }}>
         <Container>
           <AutoComplete
-            dropDownHeight={this.props.dropDownHeight}
-            value={videoTitle}
-            section={videoCategory}
-            data={ Object.keys( videos ).map( key => videos[ key ].title ) }
-            onSelect={this.props.onVideoSelect} />
+            dropDownHeight={ this.props.dropDownHeight }
+            value={ videoTitle }
+            section={ videoCategory }
+            data={  Object.keys( videos ).map( key => videos[ key ].title )  }
+            onSelect={ this.props.onVideoSelect }
+          />
         </Container>
         <MediaCard
-          title={videoTitle}
-          gifUrl={gifUrl}
-          videoUrl={videoUrl}
-          onCopyReady={this.props.onCopyReady}
-          forceGif={forceGif}
+          title={ videoTitle }
+          gifUrl={ gifUrl }
+          videoUrl={ videoUrl }
+          onCopyReady={ this.props.onCopyReady }
+          forceGif={ forceGif }
         />
       </div>
     );

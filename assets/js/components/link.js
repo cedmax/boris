@@ -14,7 +14,11 @@ export default class Link extends React.Component {
     };
 
     return (
-      <a style={style} href={url} target="_blank">
+      <a
+        style={ style }
+        href={ url }
+        target="_blank"
+      >
         {url}
       </a>
     );
