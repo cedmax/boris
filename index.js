@@ -56,6 +56,7 @@ jspm.import( 'js/app' ).then( function( App ) {
           section,
           selected,
           format: req.params.format,
+          navigateTo: function() {},
           onCopyReady: function() {}
         } ))
       } );
@@ -85,7 +86,8 @@ jspm.import( 'js/app' ).then( function( App ) {
       json: JSON.stringify( data ),
       dev: ( settings.env === 'dev' ),
       DOM: ReactDOMServer.renderToString( App( {
-        data
+        data,
+        navigateTo: function() {}
       } ))
     } );
 

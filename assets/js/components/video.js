@@ -34,3 +34,7 @@ export default class VideoCard extends React.Component {
     );
   }
 }
+
+VideoCard.propTypes = {
+  videoUrl: React.PropTypes.string.isRequired
+};

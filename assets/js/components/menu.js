@@ -61,3 +61,14 @@ export default class NavMenu extends React.Component {
     );
   }
 }
+
+NavMenu.propTypes = {
+  menu: React.PropTypes.shape( {
+    categories: React.PropTypes.arrayOf( React.PropTypes.shape( {
+      key: React.PropTypes.string.isRequired,
+      value: React.PropTypes.string.isRequired
+    } )).isRequired
+  } ).isRequired,
+  onClick: React.PropTypes.func.isRequired,
+  selected: React.PropTypes.string
+};

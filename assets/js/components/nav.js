@@ -151,3 +151,11 @@ export default class Nav extends React.Component {
     );
   }
 }
+
+Nav.propTypes = {
+  staticContent: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+  onMenuClick: React.PropTypes.func.isRequired,
+  menu: React.PropTypes.object.isRequired,
+  current: React.PropTypes.string.isRequired
+};

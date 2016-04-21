@@ -10,7 +10,7 @@ injectTapEventPlugin();
 const data = JSON.parse( document.getElementById( 'data' ).innerHTML );
 
 function navigateTo() {
-  let args = Array.prototype.slice.call( arguments );
+  let args = Array.prototype.slice.call( arguments ).filter( arg => arg );
 
   browserHistory.push( '/' + ( args.length ? args.join( '/' ) : '' ));
 }
@@ -36,6 +36,10 @@ class Main extends React.Component {
     );
   }
 }
+
+Main.propTypes = {
+  params: React.PropTypes.objectOf( React.PropTypes.string ).isRequired
+};
 
 ReactDOM.render((
   <Router

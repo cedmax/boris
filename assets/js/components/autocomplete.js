@@ -80,3 +80,11 @@ export default class BorisAutoComplete extends React.Component {
     );
   }
 }
+
+BorisAutoComplete.propTypes = {
+  data: React.PropTypes.arrayOf( React.PropTypes.string ).isRequired,
+  onSelect: React.PropTypes.func.isRequired,
+  section: React.PropTypes.string,
+  value: React.PropTypes.string,
+  dropDownHeight: React.PropTypes.number
+};

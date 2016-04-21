@@ -20,3 +20,12 @@ export default class Container extends React.Component {
     );
   }
 }
+
+Container.propTypes = {
+  children: React.PropTypes.oneOfType( [
+    React.PropTypes.arrayOf( React.PropTypes.element ),
+    React.PropTypes.element,
+    React.PropTypes.arrayOf( React.PropTypes.node ),
+    React.PropTypes.node
+  ] ).isRequired
+};

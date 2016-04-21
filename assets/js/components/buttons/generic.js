@@ -17,3 +17,9 @@ export default class Button extends React.Component {
     );
   }
 }
+
+Button.propTypes = {
+  icon: React.PropTypes.element.isRequired,
+  tooltip: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func.isRequired
+};

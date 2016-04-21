@@ -2,15 +2,16 @@ import React from 'react';
 import Container from 'js/components/container';
 import AutoComplete from 'js/components/autocomplete';
 import MediaCard from 'js/components/mediacard';
+import props from 'js/props';
 
-export default class App extends React.Component {
+export default class Category extends React.Component {
   render() {
-    let section = this.props.section;
-    let data = this.props.data.categories;
+    const section = this.props.section;
+    const data = this.props.data.categories;
     this.sectionTitle = data[ section ].title;
     this.data = data[ section ].videos;
 
-    let forceGif, selected = this.props.selected;
+    const selected = this.props.selected;
 
     if ( selected ) {
       var {
@@ -18,8 +19,6 @@ export default class App extends React.Component {
         url: videoUrl,
         gif: gifUrl
       } = this.data[ selected ];
-
-      forceGif = ( this.props.format === 'gif' );
     }
 
     return (
@@ -43,9 +42,21 @@ export default class App extends React.Component {
           gifUrl={ gifUrl }
           videoUrl={ videoUrl }
           onCopyReady={ this.props.onCopyReady }
-          forceGif={ forceGif }
+          format={ this.props.format }
         />
       </div>
     );
   }
 }
+
+Category.propTypes = {
+  data: React.PropTypes.shape( {
+    categories: React.PropTypes.objectOf( props.section ).isRequired
+  } ).isRequired,
+  section: React.PropTypes.string.isRequired,
+  onVideoSelect: React.PropTypes.func.isRequired,
+  onCopyReady: React.PropTypes.func.isRequired,
+  selected: React.PropTypes.string,
+  format: React.PropTypes.string,
+  dropDownHeight: React.PropTypes.number
+};

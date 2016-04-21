@@ -3,6 +3,7 @@ import Nav from 'js/components/nav';
 import HomePage from 'js/pages/home';
 import Category from 'js/pages/category';
 import QuickReplies from 'js/pages/quick-replies';
+import props from 'js/props';
 
 export default class App extends React.Component {
   constructor( props ) {
@@ -14,8 +15,6 @@ export default class App extends React.Component {
       key: key,
       value: categories[ key ].title
     } ));
-    this.menu.replies = props.data.r;
-
     this.showVideo = this.showVideo.bind( this );
   }
 
@@ -75,3 +74,13 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  data: React.PropTypes.shape( {
+    categories: React.PropTypes.objectOf( props.section ).isRequired,
+    r: props.section,
+    about: React.PropTypes.string.isRequired
+  } ).isRequired,
+  navigateTo: React.PropTypes.func.isRequired,
+  section: React.PropTypes.string
+};

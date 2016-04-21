@@ -3,8 +3,33 @@
 	"videos": {
 		"buongiorno-una-sega": {
 			"quick": true,
-			"title": "Buongiorno una sega",
+			"title": "Buongiorno una sega (Nuti)",
 			"url": "https://www.youtube.com/watch?v=_AtOyXEEyxE"
+		},
+		"fascio": {
+			"quick": true,
+			"title": "A me fascio? Io non son comunista così... (Verdone + Mario Brega)",
+			"url": "https://www.youtube.com/watch?v=IPlYNw-L2Dc"
+		},
+		"fodera": {
+			"quick": true,
+			"title": "M'hai rotto la fodera del cazzo (Tomas Milian)",
+			"url": "https://www.youtube.com/watch?v=BATADXOoO2w"
+		},
+		"hai-rotto-il-cazzo": {
+			"quick": true,
+			"title": "Hai rotto il cazzo (Guzzanti)",
+			"url": "https://www.youtube.com/watch?v=Qcr0XCBw9ug"
+		},
+		"in-che-senso": {
+			"quick": true,
+			"title": "In che Senso? (Verdone)",
+			"url": "https://www.youtube.com/watch?v=r-kvBwmxU-I"
+		},
+		"stronzoli": {
+			"quick": true,
+			"title": "Stronzoli nel culo (Benigni)",
+			"url": "https://www.youtube.com/watch?v=HukL-nhfL9E"
 		}
 	}
 }

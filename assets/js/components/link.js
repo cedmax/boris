@@ -24,3 +24,7 @@ export default class Link extends React.Component {
     );
   }
 }
+
+Link.propTypes = {
+  url: React.PropTypes.string.isRequired
+};

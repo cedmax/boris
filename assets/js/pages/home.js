@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
+import props from 'js/props';
 
 export default class Home extends React.Component {
   render() {
@@ -55,3 +56,10 @@ export default class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  data: React.PropTypes.shape( {
+    categories: React.PropTypes.objectOf( props.section ).isRequired
+  } ).isRequired,
+  onClick: React.PropTypes.func.isRequired
+};

@@ -9,12 +9,15 @@ import Link from 'js/components/link';
 import Video from 'js/components/video';
 import VideoIcon from 'material-ui/lib/svg-icons/av/videocam';
 
+function forceGif( props ) {
+  return props.format === 'gif';
+}
 
 export default class MediaCard extends React.Component {
   constructor( props ) {
     super( props );
     this.state = {
-      gif: props.forceGif
+      gif: forceGif( props )
     };
     this.toggleGif = this.toggleGif.bind( this );
   }
@@ -27,7 +30,7 @@ export default class MediaCard extends React.Component {
 
   shouldComponentUpdate( nextProps, nextState ) {
     if ( nextProps.title !== this.props.title ) {
-      nextState.gif = nextProps.forceGif;
+      nextState.gif = forceGif( nextProps );
     }
     return true;
   }
@@ -110,3 +113,11 @@ export default class MediaCard extends React.Component {
     );
   }
 }
+
+MediaCard.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  videoUrl: React.PropTypes.string.isRequired,
+  gifUrl: React.PropTypes.string,
+  format: React.PropTypes.string,
+  onCopyReady: React.PropTypes.func.isRequired
+};
