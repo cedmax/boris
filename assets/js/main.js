@@ -25,7 +25,7 @@ class Main extends React.Component {
       <App
         navigateTo={navigateTo}
         data={data}
-        section={this.props.params.category}
+        section={this.props.params.section}
         selected={this.props.params.selected}
         format={this.props.params.format}
         onCopyReady={function( selector ) {
@@ -41,9 +41,9 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" >
       <IndexRoute component={Main} />
-      <Route path="/:category" component={Main}/>
-      <Route path="/:category/:selected" component={Main}/>
-      <Route path="/:category/:selected/:format" component={Main}/>
+      <Route path="/:section" component={Main}/>
+      <Route path="/:section/:selected" component={Main}/>
+      <Route path="/:section/:selected/:format" component={Main}/>
     </Route>
   </Router>
 ), document.getElementById( 'app' ));

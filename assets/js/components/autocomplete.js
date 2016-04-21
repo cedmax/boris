@@ -7,7 +7,7 @@ export default class BorisAutoComplete extends React.Component {
 
     this.state = {
       searchText: '',
-      category: props.category
+      section: props.section
     };
   }
 
@@ -28,11 +28,18 @@ export default class BorisAutoComplete extends React.Component {
     this.props.onSelect( text );
   }
 
-  handleChangeCategory( category ) {
+  handleChangeSection( section ) {
     this.setState( {
-      category,
+      section,
       searchText: ''
     } );
+  }
+
+  shouldComponentUpdate( nextProp, nextState ) {
+    if ( nextProp.section !== nextState.section ) {
+      this.handleChangeSection( nextProp.section );
+    }
+    return true;
   }
 
   render() {
@@ -57,7 +64,7 @@ export default class BorisAutoComplete extends React.Component {
         <AutoComplete
           onFocus={ this.onFocus.bind( this ) }
           menuProps={menuProps}
-          id={`search-${this.props.category}`}
+          id={`search-${this.props.section}`}
           searchText={this.state.searchText}
           fullWidth={true}
           hintText={placeHolder}

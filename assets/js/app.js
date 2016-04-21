@@ -32,7 +32,6 @@ export default class App extends React.Component {
       section,
       data
     } = this.props;
-
     let sectionTitle, content;
 
     if ( data[ section ] ) {
