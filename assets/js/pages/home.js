@@ -13,7 +13,7 @@ export default class Home extends React.Component {
         let third = (( i + 1 ) <= 3 );
         return (
           <Card
-            onClick={ ()=>this.props.onClick( category ) }
+            onClick={ ()=>this.props.navigateTo( category ) }
             key={ category }
             style={ {
               'position': 'relative',
@@ -61,5 +61,5 @@ Home.propTypes = {
   data: React.PropTypes.shape( {
     categories: React.PropTypes.objectOf( props.section ).isRequired
   } ).isRequired,
-  onClick: React.PropTypes.func.isRequired
+  navigateTo: React.PropTypes.func.isRequired
 };

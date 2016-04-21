@@ -6,20 +6,13 @@ import props from 'js/props';
 
 export default class Category extends React.Component {
   render() {
-    const section = this.props.section;
-    const data = this.props.data.categories;
-    this.sectionTitle = data[ section ].title;
-    this.data = data[ section ].videos;
-
-    const selected = this.props.selected;
-
-    if ( selected ) {
-      var {
-        title: videoTitle,
-        url: videoUrl,
-        gif: gifUrl
-      } = this.data[ selected ];
-    }
+    const {
+      section,
+      selected,
+      data
+    } = this.props;
+    const videos = data.categories[ section ].videos;
+    const currentVideo = selected ? videos[ selected ] : null;
 
     return (
       <div style={ {
@@ -30,19 +23,14 @@ export default class Category extends React.Component {
       }}>
         <Container>
           <AutoComplete
-            dropDownHeight={ this.props.dropDownHeight }
-            value={ videoTitle }
-            section={ section }
-            data={ Object.keys( this.data ).map( key => this.data[ key ].title ) }
-            onSelect={ this.props.onVideoSelect }
+            { ...this.props }
+            value={ currentVideo && currentVideo.title }
+            options={ videos }
           />
         </Container>
         <MediaCard
-          title={ videoTitle }
-          gifUrl={ gifUrl }
-          videoUrl={ videoUrl }
-          onCopyReady={ this.props.onCopyReady }
-          format={ this.props.format }
+          { ...this.props }
+          currentVideo={ currentVideo }
         />
       </div>
     );
@@ -54,9 +42,5 @@ Category.propTypes = {
     categories: React.PropTypes.objectOf( props.section ).isRequired
   } ).isRequired,
   section: React.PropTypes.string.isRequired,
-  onVideoSelect: React.PropTypes.func.isRequired,
-  onCopyReady: React.PropTypes.func.isRequired,
-  selected: React.PropTypes.string,
-  format: React.PropTypes.string,
-  dropDownHeight: React.PropTypes.number
+  selected: React.PropTypes.string
 };

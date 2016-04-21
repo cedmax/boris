@@ -29,8 +29,9 @@ jspm.import( 'js/app' ).then( function( App ) {
   App = React.createFactory( App.default );
 
   function render( req, res, section, selected ) {
-    var title = ( data[ section ] || data.categories[ section ] ).title;
-    var video = ( data[ section ] || data.categories[ section ] ).videos;
+    const title = ( data[ section ] || data.categories[ section ] ).title;
+    const video = ( data[ section ] || data.categories[ section ] ).videos;
+    const format = req.params.format;
 
     if ( selected && ! video[ selected ] ) {
       res.redirect( `/${section}` );
@@ -41,7 +42,6 @@ jspm.import( 'js/app' ).then( function( App ) {
         sectionUrl = data[ section ].videos[ selected ].category;
       }
       const url = `${domain}/${sectionUrl}` + ( selected ? `/${selected}` : '' );
-
 
       Object.assign( res.locals, {
         title,
@@ -55,7 +55,7 @@ jspm.import( 'js/app' ).then( function( App ) {
           data,
           section,
           selected,
-          format: req.params.format,
+          format,
           navigateTo: function() {},
           onCopyReady: function() {}
         } ))
@@ -94,14 +94,14 @@ jspm.import( 'js/app' ).then( function( App ) {
     res.render( 'index' );
   } );
 
-  app.get( '/:section/:resource?/:format?', function( req, res ) {
+  app.get( '/:section/:selected?/:format?', function( req, res ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
 
-    var resource = req.params.resource;
-    var section = req.params.section;
+    const selected = req.params.selected;
+    const section = req.params.section;
 
     if ( data[ section ] || data.categories[ section ] ) {
-      render( req, res, section, resource );
+      render( req, res, section, selected );
     } else {
       res.redirect( '/' );
     }

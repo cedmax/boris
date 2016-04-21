@@ -6,26 +6,6 @@ import QuickReplies from 'js/pages/quick-replies';
 import props from 'js/props';
 
 export default class App extends React.Component {
-  constructor( props ) {
-    super( props );
-
-    this.menu = {};
-    const categories = props.data.categories;
-    this.menu.categories = Object.keys( categories ).map(( key ) => ( {
-      key: key,
-      value: categories[ key ].title
-    } ));
-    this.showVideo = this.showVideo.bind( this );
-  }
-
-  showVideo( selected ) {
-    var keys = Object.keys( this.videos );
-    var sel = keys.filter( ( key ) => this.videos[ key ].title === selected );
-    if ( sel.length ) {
-      this.props.navigateTo( this.props.section, sel[ 0 ] );
-    }
-  }
-
   render() {
     let {
       section,
@@ -39,7 +19,6 @@ export default class App extends React.Component {
       content = (
         <QuickReplies
           { ...this.props }
-          onVideoSelect={ this.showVideo }
         />
       );
     } else if ( section ) {
@@ -48,14 +27,12 @@ export default class App extends React.Component {
       content = (
         <Category
           { ...this.props }
-          onVideoSelect={ this.showVideo }
         />
       );
     } else {
       content = (
         <HomePage
-          data={ this.props.data }
-          onClick={ this.props.navigateTo }
+          { ...this.props }
         />
       );
     }
@@ -64,10 +41,7 @@ export default class App extends React.Component {
       <div>
         <Nav
           title={ sectionTitle || 'Trash Meme' }
-          menu={ this.menu }
-          current={ section || '' }
-          onMenuClick={ this.props.navigateTo }
-          staticContent={ this.props.data.about }
+          { ...this.props }
         />
         { content }
       </div>
@@ -77,9 +51,7 @@ export default class App extends React.Component {
 
 App.propTypes = {
   data: React.PropTypes.shape( {
-    categories: React.PropTypes.objectOf( props.section ).isRequired,
-    r: props.section,
-    about: React.PropTypes.string.isRequired
+    categories: React.PropTypes.objectOf( props.section ).isRequired
   } ).isRequired,
   navigateTo: React.PropTypes.func.isRequired,
   section: React.PropTypes.string

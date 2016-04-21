@@ -74,7 +74,7 @@ export default class Nav extends React.Component {
           style={ menuStyle.button }
           onClick={ this.handleOpenDialog }
           label="About"
-          labelStyle={ menuStyle.label} >
+          labelStyle={ menuStyle.label } >
           <HelpOutlineIcon
             color={ menuStyle.icon}
           />
@@ -87,10 +87,10 @@ export default class Nav extends React.Component {
         style={ menuStyle.button }
         labelStyle={ menuStyle.label }
         label="Menu"
-        onClick={ this.handleToggleMenu}
+        onClick={ this.handleToggleMenu }
       >
         <MenuIcon
-          color={ menuStyle.icon}
+          color={ menuStyle.icon }
         />
       </FlatButton>
     );
@@ -99,13 +99,12 @@ export default class Nav extends React.Component {
     if ( this.state.openMenu ) {
       menu = (
         <Menu
-          menu={ this.props.menu }
-          selected={ this.props.current }
+          { ...this.props }
           onClick={ ( menuKey, selection )=> {
             this.setState( {
               openMenu: false
             } );
-            this.props.onMenuClick( menuKey, selection );
+            this.props.navigateTo( menuKey, selection );
           } }
         />
       );
@@ -121,7 +120,7 @@ export default class Nav extends React.Component {
         <AppBar
           iconElementLeft={ menuIcon }
           iconElementRight={ dialogIcons }
-          title={ this.props.title}
+          title={ this.props.title }
         />
         <Dialog
           title="About"
@@ -131,13 +130,14 @@ export default class Nav extends React.Component {
           onRequestClose={ this.handleCloseDialog }
         >
           <div
-            dangerouslySetInnerHTML={ { __html: this.props.staticContent } }
+            dangerouslySetInnerHTML={ { __html: this.props.data.about } }
           ></div>
         </Dialog>
         <Dialog
           modal={ false }
           open={ this.state.openSubmitDialog }
-          onRequestClose={ this.handleCloseSubmitDialog} >
+          onRequestClose={ this.handleCloseSubmitDialog }
+        >
           { submitDialog }
         </Dialog>
         <LeftNav
@@ -153,9 +153,9 @@ export default class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  staticContent: React.PropTypes.string.isRequired,
+  data: React.PropTypes.shape( {
+    about: React.PropTypes.string.isRequired
+  } ).isRequired,
   title: React.PropTypes.string.isRequired,
-  onMenuClick: React.PropTypes.func.isRequired,
-  menu: React.PropTypes.object.isRequired,
-  current: React.PropTypes.string.isRequired
+  navigateTo: React.PropTypes.func.isRequired
 };

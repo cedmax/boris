@@ -2,12 +2,17 @@ import React from 'react';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import MenuItem from 'material-ui/lib/menus/menu-item';
-
+import props from 'js/props';
 
 export default class NavMenu extends React.Component {
   constructor( props ) {
     super( props );
 
+    const categories = props.data.categories;
+    this.menuCategories = Object.keys( categories ).map(( key ) => ( {
+      key: key,
+      value: categories[ key ].title
+    } ));
     this.onClick = this.onClick.bind( this );
   }
 
@@ -18,15 +23,15 @@ export default class NavMenu extends React.Component {
   }
 
   render() {
-    let homeDisabled = ! this.props.selected;
-    let repliesDisabled = this.props.selected === 'r';
+    const {
+      section,
+      data
+    } = this.props;
+    let homeDisabled = ! section;
+    let repliesDisabled = !! data[ section ];
 
-    let {
-      categories
-    } = this.props.menu;
-
-    let categoriesMenu = categories.map(( menuItem ) => {
-      let disabled = ( menuItem.key === this.props.selected );
+    let menuCategories = this.menuCategories.map(( menuItem ) => {
+      let disabled = ( menuItem.key === section );
       return (
         <MenuItem
           disabled={ disabled }
@@ -55,7 +60,7 @@ export default class NavMenu extends React.Component {
           primaryText="Sezioni"
           initiallyOpen={ true }
           primaryTogglesNestedList={ true }
-          nestedItems={ categoriesMenu }
+          nestedItems={ menuCategories }
         />
       </List>
     );
@@ -63,12 +68,10 @@ export default class NavMenu extends React.Component {
 }
 
 NavMenu.propTypes = {
-  menu: React.PropTypes.shape( {
-    categories: React.PropTypes.arrayOf( React.PropTypes.shape( {
-      key: React.PropTypes.string.isRequired,
-      value: React.PropTypes.string.isRequired
-    } )).isRequired
-  } ).isRequired,
+  data: React.PropTypes.shape( {
+    categories: React.PropTypes.objectOf( props.section ).isRequired,
+    r: props.section
+  } ),
   onClick: React.PropTypes.func.isRequired,
-  selected: React.PropTypes.string
+  section: React.PropTypes.string
 };

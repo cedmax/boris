@@ -1,6 +1,6 @@
 import React from 'react';
 
-var videos = React.PropTypes.shape( {
+var video = React.PropTypes.shape( {
   title: React.PropTypes.string.isRequired,
   url: React.PropTypes.string.isRequired,
   quick: React.PropTypes.bool,
@@ -9,8 +9,9 @@ var videos = React.PropTypes.shape( {
 } );
 
 export default {
+  video,
   section: React.PropTypes.shape( {
     title: React.PropTypes.string.isRequired,
-    videos: React.PropTypes.objectOf( videos ).isRequired
+    videos: React.PropTypes.objectOf( video ).isRequired
   } ).isRequired
 };

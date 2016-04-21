@@ -8,9 +8,14 @@ import Button from 'js/components/buttons/generic';
 import Link from 'js/components/link';
 import Video from 'js/components/video';
 import VideoIcon from 'material-ui/lib/svg-icons/av/videocam';
+import props from 'js/props';
 
 function forceGif( props ) {
   return props.format === 'gif';
+}
+
+function getVideoTitle( props ) {
+  return props.currentVideo && props.currentVideo.title;
 }
 
 export default class MediaCard extends React.Component {
@@ -29,14 +34,27 @@ export default class MediaCard extends React.Component {
   }
 
   shouldComponentUpdate( nextProps, nextState ) {
-    if ( nextProps.title !== this.props.title ) {
+    if ( getVideoTitle( nextProps ) !== getVideoTitle( this.props ) ) {
       nextState.gif = forceGif( nextProps );
     }
     return true;
   }
 
   render() {
-    if ( ! this.props.videoUrl ) {
+    const {
+      currentVideo,
+      selected
+    } = this.props;
+
+    if ( selected ) {
+      var {
+        url,
+        gif,
+        title
+      } = currentVideo || {};
+    }
+
+    if ( ! url ) {
       return ( <div /> );
     }
 
@@ -49,10 +67,9 @@ export default class MediaCard extends React.Component {
     };
 
     let alternateButton;
-    let url = this.props.videoUrl;
     let media = ( <Video videoUrl={url} /> );
 
-    const isGifEnabled = this.props.gifUrl;
+    const isGifEnabled = gif;
     const isGifVisible = this.state.gif;
 
     if ( isGifEnabled && ! isGifVisible ) {
@@ -64,7 +81,7 @@ export default class MediaCard extends React.Component {
         />
       );
     } else if ( isGifVisible ) {
-      url = this.props.gifUrl;
+      url = gif;
       alternateButton = (
         <Button
           onClick={ this.toggleGif }
@@ -74,7 +91,7 @@ export default class MediaCard extends React.Component {
       );
       media = (
         <img
-          title={ this.props.title }
+          title={ title }
           src={ url }
         />
       );
@@ -115,9 +132,8 @@ export default class MediaCard extends React.Component {
 }
 
 MediaCard.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  videoUrl: React.PropTypes.string.isRequired,
-  gifUrl: React.PropTypes.string,
-  format: React.PropTypes.string,
+  title: React.PropTypes.string,
+  currentVideo: props.video,
+  selected: React.PropTypes.string,
   onCopyReady: React.PropTypes.func.isRequired
 };
