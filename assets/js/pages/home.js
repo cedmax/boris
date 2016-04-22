@@ -5,36 +5,47 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import props from 'js/props';
 
 export default class Home extends React.Component {
+  card( categoryData, category ) {
+    const title = categoryData.title;
+    const numOfVid = Object.keys( categoryData.videos ).length;
+
+    return (
+      <Card
+        onClick={ ()=>this.props.navigateTo( category ) }
+        key={ category }
+        style={ {
+          'position': 'relative',
+          'marginBottom': '1%',
+          'cursor': 'pointer',
+          'height': '49%',
+          'background': `url(/img/${category}.jpg) no-repeat center / cover`,
+          'width': '32.75%'
+        } }
+      >
+        <a
+          href={ `/${category}` }
+          onClick={ ( e )=>e.preventDefault() }
+        >
+          <CardMedia
+            style={ { 'height': '100%' } }
+            overlay={
+              <CardTitle
+                title={ title }
+                subtitle={ <span><b>{numOfVid}</b> video</span> }
+              />
+            }
+          />
+        </a>
+      </Card>
+    );
+  }
+
+
   render() {
     var categories = this.props.data.categories;
     let cards = Object.keys( categories )
-      .map( ( category, i ) => {
-        let numOfVid = Object.keys( categories[ category ].videos ).length;
-        let third = (( i + 1 ) <= 3 );
-        return (
-          <Card
-            onClick={ ()=>this.props.navigateTo( category ) }
-            key={ category }
-            style={ {
-              'position': 'relative',
-              'marginBottom': '1%',
-              'cursor': 'pointer',
-              'height': '49%',
-              'background': `url(/img/${category}.jpg) no-repeat center / cover`,
-              'width': third ? '32.75%' : '49.5%'
-            } }
-          >
-            <CardMedia
-              style={ { 'height': '100%' } }
-              overlay={
-                <CardTitle
-                  title={ categories[ category ].title }
-                  subtitle={ <span><b>{numOfVid}</b> video</span> }
-                />
-              }
-            />
-          </Card>
-        );
+      .map( ( category ) => {
+        return this.card( categories[ category ], category );
       } );
 
     return (
@@ -51,6 +62,7 @@ export default class Home extends React.Component {
           'justifyContent': 'space-between'
         } }
       >
+        { this.card( this.props.data.r, 'r' ) }
         { cards }
       </div>
     );
@@ -59,7 +71,8 @@ export default class Home extends React.Component {
 
 Home.propTypes = {
   data: React.PropTypes.shape( {
-    categories: React.PropTypes.objectOf( props.section ).isRequired
+    categories: React.PropTypes.objectOf( props.section ).isRequired,
+    r: props.section
   } ).isRequired,
   navigateTo: React.PropTypes.func.isRequired
 };

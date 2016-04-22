@@ -1,10 +1,20 @@
 {
 	"title": "hidden",
 	"videos": {
+		"aborigeno": {
+			"quick": true,
+			"title": "Aborigeno, ma io e te che cazzo se dovemo dì? (Guzzanti)",
+			"url": "https://www.youtube.com/watch?v=igBDa6a0NmE"
+		},
 		"buongiorno-una-sega": {
 			"quick": true,
 			"title": "Buongiorno una sega (Nuti)",
 			"url": "https://www.youtube.com/watch?v=_AtOyXEEyxE"
+		},
+		"ed-ora": {
+			"quick": true,
+			"title": "Ed ora andate - Marcilo Agro e il Duo Maravilha",
+			"url": "https://www.youtube.com/watch?v=WWmQSOojvOg"
 		},
 		"fascio": {
 			"quick": true,
@@ -16,6 +26,11 @@
 			"title": "M'hai rotto la fodera del cazzo (Tomas Milian)",
 			"url": "https://www.youtube.com/watch?v=BATADXOoO2w"
 		},
+		"giorno-sbagliato": {
+			"quick": true,
+			"title": "Ho scelto il giorno sbagliato per smettere di fumare",
+			"url": "https://www.youtube.com/watch?v=yhvuiWrevpE"
+		},
 		"hai-rotto-il-cazzo": {
 			"quick": true,
 			"title": "Hai rotto il cazzo (Guzzanti)",
@@ -25,6 +40,16 @@
 			"quick": true,
 			"title": "In che senso? (Verdone)",
 			"url": "https://www.youtube.com/watch?v=r-kvBwmxU-I"
+		},
+		"lavoro-schifoso": {
+			"quick": true,
+			"title": "Potrebbe andare peggio, potrebbe piovere",
+			"url": "https://www.youtube.com/watch?v=olKKWG3HwOg"
+		},
+		"morire": {
+			"quick": true,
+			"title": "Ricordati che devi morire. Mo' me lo segno (Troisi)",
+			"url": "https://www.youtube.com/watch?v=eBP9QDSr0HI"
 		},
 		"stronzoli": {
 			"quick": true,
