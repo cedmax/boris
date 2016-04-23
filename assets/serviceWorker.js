@@ -14,7 +14,8 @@
             '/img/fantozzi.jpg',
             '/img/griffin.jpg',
             '/img/nanni.jpg',
-            '/r.jpg'
+            '/img/r.jpg',
+            '/system.js'
           ]);
         })
     );
@@ -42,9 +43,10 @@
       caches.match(event.request)
         .then(function (response) {
           if (response) {
+            //console.log('From cache:', event.request.url);
             return response;
           }
-          
+
           var fetchRequest = event.request.clone();
           return fetch(fetchRequest).then(
             function (response) {
@@ -56,7 +58,6 @@
                     var cacheRequest = event.request.clone();
                     cache.put(cacheRequest, responseToCache);
                   });
-
               }
 
               return response;
@@ -65,5 +66,4 @@
         })
     );
   });
-
 })();
