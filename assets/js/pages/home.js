@@ -17,9 +17,9 @@ export default class Home extends React.Component {
           'position': 'relative',
           'marginBottom': '1%',
           'cursor': 'pointer',
-          'height': '49%',
+          'height': '32%',
           'background': `url(/img/${category}.jpg) no-repeat center / cover`,
-          'width': '32.75%'
+          'width': '49.50%'
         } }
       >
         <a
