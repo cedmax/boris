@@ -50,9 +50,9 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  data: React.PropTypes.shape( {
+  data: React.PropTypes.shape({
     categories: React.PropTypes.objectOf( props.section ).isRequired
-  } ).isRequired,
+  }).isRequired,
   navigateTo: React.PropTypes.func.isRequired,
   section: React.PropTypes.string
 };

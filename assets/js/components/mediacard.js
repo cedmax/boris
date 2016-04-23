@@ -28,13 +28,13 @@ export default class MediaCard extends React.Component {
   }
 
   toggleGif() {
-    this.setState( {
-      gif: ! this.state.gif
-    } );
+    this.setState({
+      gif: !this.state.gif
+    });
   }
 
   shouldComponentUpdate( nextProps, nextState ) {
-    if ( getVideoTitle( nextProps ) !== getVideoTitle( this.props ) ) {
+    if ( getVideoTitle( nextProps ) !== getVideoTitle( this.props )) {
       nextState.gif = forceGif( nextProps );
     }
     return true;
@@ -42,19 +42,16 @@ export default class MediaCard extends React.Component {
 
   render() {
     const {
-      currentVideo,
-      selected
+      currentVideo
     } = this.props;
 
-    if ( selected ) {
-      var {
-        url,
-        gif,
-        title
-      } = currentVideo || {};
-    }
+    let {
+      url,
+      gif,
+      title
+    } = currentVideo || {};
 
-    if ( ! url ) {
+    if ( !url ) {
       return ( <div /> );
     }
 
@@ -72,7 +69,7 @@ export default class MediaCard extends React.Component {
     const isGifEnabled = gif;
     const isGifVisible = this.state.gif;
 
-    if ( isGifEnabled && ! isGifVisible ) {
+    if ( isGifEnabled && !isGifVisible ) {
       alternateButton = (
         <Button
           onClick={ this.toggleGif }
@@ -84,7 +81,7 @@ export default class MediaCard extends React.Component {
       url = gif;
       alternateButton = (
         <Button
-          onClick={ this.toggleGif }
+          onClick={this.toggleGif }
           tooltip='Show the video instead'
           icon={ <VideoIcon /> }
         />
@@ -99,7 +96,7 @@ export default class MediaCard extends React.Component {
 
     let subtitle = (
       <div
-        style={ {
+        style={{
           'display': 'flex',
           'alignItems': 'center'
         }}

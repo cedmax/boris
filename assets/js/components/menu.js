@@ -8,11 +8,14 @@ export default class NavMenu extends React.Component {
   constructor( props ) {
     super( props );
 
-    const categories = props.data.categories;
-    this.menuCategories = Object.keys( categories ).map(( key ) => ( {
-      key: key,
+    const {
+      categories
+    } = props.data;
+
+    this.menuCategories = Object.keys( categories ).map(( key ) => ({
+      key,
       value: categories[ key ].title
-    } ));
+    }));
     this.onClick = this.onClick.bind( this );
   }
 
@@ -27,8 +30,8 @@ export default class NavMenu extends React.Component {
       section,
       data
     } = this.props;
-    let homeDisabled = ! section;
-    let repliesDisabled = !! data[ section ];
+    let homeDisabled = !section;
+    let repliesDisabled = !!data[ section ];
 
     let menuCategories = this.menuCategories.map(( menuItem ) => {
       let disabled = ( menuItem.key === section );
@@ -40,7 +43,7 @@ export default class NavMenu extends React.Component {
         >
           { menuItem.value }
         </MenuItem> );
-    } );
+    });
 
     return (
       <List>
@@ -68,10 +71,10 @@ export default class NavMenu extends React.Component {
 }
 
 NavMenu.propTypes = {
-  data: React.PropTypes.shape( {
+  data: React.PropTypes.shape({
     categories: React.PropTypes.objectOf( props.section ).isRequired,
     r: props.section
-  } ),
+  }),
   onClick: React.PropTypes.func.isRequired,
   section: React.PropTypes.string
 };

@@ -14,15 +14,15 @@ export default class BorisAutoComplete extends React.Component {
   }
 
   onFocus() {
-    this.setState( {
+    this.setState({
       searchText: ''
-    } );
+    });
   }
 
   handleUpdateInput( text ) {
-    this.setState( {
+    this.setState({
       searchText: text
-    } );
+    });
   }
 
   handleSelect( text ) {
@@ -31,10 +31,10 @@ export default class BorisAutoComplete extends React.Component {
   }
 
   handleChangeSection( section ) {
-    this.setState( {
+    this.setState({
       section,
       searchText: ''
-    } );
+    });
   }
 
   navigateToVideo( selected ) {
@@ -43,7 +43,7 @@ export default class BorisAutoComplete extends React.Component {
     } = this.props;
 
     const keys = Object.keys( options );
-    const sel = keys.filter( ( key ) => options[ key ].title === selected );
+    const sel = keys.filter(( key ) => options[ key ].title === selected );
 
     if ( sel.length ) {
       this.props.navigateTo( this.props.section, sel[ 0 ] );
@@ -64,9 +64,9 @@ export default class BorisAutoComplete extends React.Component {
       value
     } = this.props;
 
-    var placeHolder = value ?
+    const placeHolder = value ?
       value :
-      `Prova con "${ options[ Object.keys( options )[ 0 ]].title }"`;
+      `Prova con "${options[ Object.keys( options )[ 0 ]].title}"`;
 
     let menuProps;
     if ( this.props.dropDownHeight ) {
@@ -78,7 +78,7 @@ export default class BorisAutoComplete extends React.Component {
 
     return (
       <div
-        style={ {
+        style={{
           'minWidth': '250px',
           'width': '40%',
           'margin': 'auto'

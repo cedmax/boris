@@ -20,7 +20,7 @@ app.use( express.static( __dirname + '/assets' ));
 var settings = require( './settings.json' );
 var data = mapData( './data', {
   about: './about.md'
-} );
+});
 
 //jspm dependencies loading
 var jspm = require( 'jspm' );
@@ -33,7 +33,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     const video = ( data[ section ] || data.categories[ section ] ).videos;
     const format = req.params.format;
 
-    if ( selected && ! video[ selected ] ) {
+    if ( selected && !video[ selected ] ) {
       res.redirect( `/${section}` );
     } else {
       const domain = req.protocol + '://' + req.get( 'host' );
@@ -51,15 +51,15 @@ jspm.import( 'js/app' ).then( function( App ) {
         json: JSON.stringify( data ),
         videoId: getYouTubeID( video[ selected ] && video[ selected ].url ),
         dev: ( settings.env === 'dev' ),
-        DOM: ReactDOMServer.renderToString( App( {
+        DOM: ReactDOMServer.renderToString( App({
           data,
           section,
           selected,
           format,
           navigateTo: function() {},
           onCopyReady: function() {}
-        } ))
-      } );
+        }))
+      });
 
       res.render( 'index' );
     }
@@ -73,7 +73,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     } else {
       res.redirect( '/' );
     }
-  } );
+  });
 
   app.get( '/', function( req, res ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
@@ -85,14 +85,14 @@ jspm.import( 'js/app' ).then( function( App ) {
       title: 'Trash Meme',
       json: JSON.stringify( data ),
       dev: ( settings.env === 'dev' ),
-      DOM: ReactDOMServer.renderToString( App( {
+      DOM: ReactDOMServer.renderToString( App({
         data,
         navigateTo: function() {}
-      } ))
-    } );
+      }))
+    });
 
     res.render( 'index' );
-  } );
+  });
 
   app.get( '/:section/:selected?/:format?', function( req, res ) {
     global.navigator = { userAgent: req.headers[ 'user-agent' ] };
@@ -105,7 +105,7 @@ jspm.import( 'js/app' ).then( function( App ) {
     } else {
       res.redirect( '/' );
     }
-  } );
+  });
 
   app.listen( settings.port );
-} );
+});

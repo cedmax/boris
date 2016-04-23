@@ -25,27 +25,27 @@ export default class Nav extends React.Component {
   }
 
   handleOpenDialog () {
-    this.setState( { openDialog: true } );
+    this.setState({ openDialog: true });
   }
 
   handleOpenSubmitDialog () {
-    this.setState( { openSubmitDialog: true } );
+    this.setState({ openSubmitDialog: true });
   }
 
   handleCloseDialog () {
-    this.setState( { openDialog: false } );
+    this.setState({ openDialog: false });
   }
 
   handleCloseSubmitDialog () {
-    this.setState( { openSubmitDialog: false } );
+    this.setState({ openSubmitDialog: false });
   }
 
   handleToggleMenu () {
-    this.setState( { openMenu: ! this.state.openMenu } );
+    this.setState({ openMenu: !this.state.openMenu });
   }
 
   render() {
-    var menuStyle = {
+    const menuStyle = {
       button: {
         'padding': '5px 0',
         'minWidth': 'auto'
@@ -59,7 +59,7 @@ export default class Nav extends React.Component {
       }
     };
 
-    var dialogIcons = (
+    const dialogIcons = (
       <div>
         <FlatButton
           style={ menuStyle.button }
@@ -82,7 +82,7 @@ export default class Nav extends React.Component {
       </div>
     );
 
-    var menuIcon = (
+    const menuIcon = (
       <FlatButton
         style={ menuStyle.button }
         labelStyle={ menuStyle.label }
@@ -101,9 +101,9 @@ export default class Nav extends React.Component {
         <Menu
           { ...this.props }
           onClick={ ( menuKey, selection )=> {
-            this.setState( {
+            this.setState({
               openMenu: false
-            } );
+            });
             this.props.navigateTo( menuKey, selection );
           } }
         />
@@ -130,7 +130,9 @@ export default class Nav extends React.Component {
           onRequestClose={ this.handleCloseDialog }
         >
           <div
-            dangerouslySetInnerHTML={ { __html: this.props.data.about } }
+            dangerouslySetInnerHTML={{
+              __html: this.props.data.about
+            }}
           ></div>
         </Dialog>
         <Dialog
@@ -142,7 +144,7 @@ export default class Nav extends React.Component {
         </Dialog>
         <LeftNav
           docked={ false }
-          onRequestChange={ openMenu => this.setState( { openMenu } ) }
+          onRequestChange={ openMenu => this.setState({ openMenu }) }
           open={ this.state.openMenu }
         >
           { menu }
@@ -153,9 +155,9 @@ export default class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  data: React.PropTypes.shape( {
+  data: React.PropTypes.shape({
     about: React.PropTypes.string.isRequired
-  } ).isRequired,
+  }).isRequired,
   title: React.PropTypes.string.isRequired,
   navigateTo: React.PropTypes.func.isRequired
 };

@@ -7,10 +7,10 @@ export default class CopyButton extends React.Component {
     return (
       <IconButton
         className='copy-btn'
-        style={ {
+        style={{
           'verticalAlign': 'middle',
           'display': 'inline-block'
-        } }
+        }}
         tooltip='Copy to clipboard'
         data-clipboard-text={ this.props.toBeCopied }
       >

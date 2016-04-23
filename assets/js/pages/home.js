@@ -6,32 +6,36 @@ import props from 'js/props';
 
 export default class Home extends React.Component {
   card( categoryData, category ) {
-    const title = categoryData.title;
+    const {
+      title
+    } = categoryData;
     const numOfVid = Object.keys( categoryData.videos ).length;
 
     return (
       <Card
         onClick={ ()=>this.props.navigateTo( category ) }
         key={ category }
-        style={ {
+        style={{
           'position': 'relative',
           'marginBottom': '1%',
           'cursor': 'pointer',
           'height': '32%',
           'background': `url(/img/${category}.jpg) no-repeat center / cover`,
           'width': '49.50%'
-        } }
+        }}
       >
         <a
           href={ `/${category}` }
           onClick={ ( e )=>e.preventDefault() }
         >
           <CardMedia
-            style={ { 'height': '100%' } }
+            style={{
+              'height': '100%'
+            }}
             overlay={
               <CardTitle
                 title={ title }
-                subtitle={ <span><b>{numOfVid}</b> video</span> }
+                subtitle={ <span><b>{ numOfVid }</b> video</span> }
               />
             }
           />
@@ -42,15 +46,16 @@ export default class Home extends React.Component {
 
 
   render() {
-    var categories = this.props.data.categories;
+    const {
+      categories
+    } = this.props.data;
+
     let cards = Object.keys( categories )
-      .map( ( category ) => {
-        return this.card( categories[ category ], category );
-      } );
+      .map( category => this.card( categories[ category ], category ));
 
     return (
       <div
-        style={ {
+        style={{
           'position': 'absolute',
           'right': '1%',
           'left': '1%',
@@ -60,7 +65,7 @@ export default class Home extends React.Component {
           'flexWrap': 'wrap',
           'flexDirection': 'row',
           'justifyContent': 'space-between'
-        } }
+        }}
       >
         { this.card( this.props.data.r, 'r' ) }
         { cards }
@@ -70,9 +75,9 @@ export default class Home extends React.Component {
 }
 
 Home.propTypes = {
-  data: React.PropTypes.shape( {
+  data: React.PropTypes.shape({
     categories: React.PropTypes.objectOf( props.section ).isRequired,
     r: props.section
-  } ).isRequired,
+  }).isRequired,
   navigateTo: React.PropTypes.func.isRequired
 };

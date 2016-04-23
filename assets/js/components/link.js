@@ -2,7 +2,10 @@ import React from 'react';
 
 export default class Link extends React.Component {
   render() {
-    const url = this.props.url;
+    const {
+      url
+    } = this.props;
+
     const style = {
       'fontFamily': 'monospace',
       'display': 'inline-block',

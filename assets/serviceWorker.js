@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var cacheKey = 'v1';
-  var cacheFontKey = 'v1';
+  const cacheKey = 'v1';
+  const cacheFontKey = 'v1';
 
   self.addEventListener('install', function (event) {
     event.waitUntil(
@@ -47,15 +47,15 @@
             return response;
           }
 
-          var fetchRequest = event.request.clone();
+          const fetchRequest = event.request.clone();
           return fetch(fetchRequest).then(
             function (response) {
               if (fetchRequest.url.indexOf('https://fonts.') === 0) {
-                var responseToCache = response.clone();
+                const responseToCache = response.clone();
 
                 caches.open(cacheFontKey)
                   .then(function (cache) {
-                    var cacheRequest = event.request.clone();
+                    const cacheRequest = event.request.clone();
                     cache.put(cacheRequest, responseToCache);
                   });
               }

@@ -6,10 +6,10 @@ export default class Button extends React.Component {
     return (
       <IconButton
         onClick={ this.props.onClick }
-        style={ {
+        style={{
           'verticalAlign': 'middle',
           'display': 'inline-block'
-        } }
+        }}
         tooltip={ this.props.tooltip }
       >
         { this.props.icon }

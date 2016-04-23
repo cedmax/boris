@@ -1,9 +1,19 @@
 {
 	"preset": "mdcs",
-	"esnext": true,
 	"requirePaddingNewlinesInBlocks": null,
 	"requireLineFeedAtFileEnd": null,
-	"requireSpacesInsideParentheses": "allButNested",
+	"requireSpacesInsideParentheses": { "all": true, "except": [ "(", ")", "{", "}" ] },
+	"disallowSpacesInsideParentheses": { "only": [ "(", ")", "{", "}" ] },
+	"requireSpaceAfterPrefixUnaryOperators": null,
+	"disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
 	"disallowKeywords": null,
-	"validateIndentation": 2
+	"validateIndentation": 2,
+	"disallowVar": true,
+	"disallowSpacesInsideTemplateStringPlaceholders": true,
+	"requireArrowFunctions": true,
+	"requireEnhancedObjectLiterals": true,
+	"requireObjectDestructuring": true,
+	"requireObjectKeysOnNewLine": true,
+	"requireShorthandArrowFunctions": true,
+	"requireTemplateStrings": true
 }

@@ -10,16 +10,20 @@ export default class QuickReplies extends React.Component {
       data,
       selected
     } = this.props;
-    const videos = data.r.videos;
+    const {
+      videos
+    } = data.r;
     const currentVideo = selected ? videos[ selected ] : null;
 
     return (
-      <div style={  {
-        'background': `url(/img/${currentVideo && currentVideo.category || 'r'}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
-        'position': 'absolute',
-        'height': '100%',
-        'width': '100%'
-      }}>
+      <div
+        style={  {
+          'background': `url(/img/${currentVideo && currentVideo.category || 'r'}.jpg) no-repeat 50% calc(50% + 70px) / cover`,
+          'position': 'absolute',
+          'height': '100%',
+          'width': '100%'
+        }}
+      >
         <Container>
           <AutoComplete
             { ...this.props }
@@ -37,8 +41,8 @@ export default class QuickReplies extends React.Component {
 }
 
 QuickReplies.propTypes = {
-  data: React.PropTypes.shape( {
+  data: React.PropTypes.shape({
     r: props.section.isRequired
-  } ).isRequired,
+  }).isRequired,
   selected: React.PropTypes.string
 };
