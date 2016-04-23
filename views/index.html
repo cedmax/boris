@@ -48,7 +48,6 @@
 	<body>
 		<div id="app">{{{DOM}}}</div>
 		<script id="data" type="application/json">{{{json}}}</script>
-
 		{{#dev}}
 			<script src="/system.js"></script>
 			<script src="/config.js"></script>
@@ -68,5 +67,16 @@
 				ga('send', 'pageview');
 			</script>
 		{{/dev}}
+		<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/serviceWorker.js').then(function(reg) {
+				// registration worked
+				console.log('Registration succeeded. Scope is ' + reg.scope);
+			}).catch(function(error) {
+				// registration failed
+				console.log('Registration failed with ' + error);
+			});
+		};
+	</script>
 	</body>
 </html>
