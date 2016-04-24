@@ -11,6 +11,11 @@
 			"title": "Buongiorno una sega (Nuti)",
 			"url": "https://www.youtube.com/watch?v=_AtOyXEEyxE"
 		},
+		"capra": {
+			"quick": true,
+			"title": "Lei è ignorante come una capra (Sgarbi)",
+			"url": "https://www.youtube.com/watch?v=936gPA5gnJg"
+		},
 		"ed-ora": {
 			"quick": true,
 			"title": "Ed ora andate - Marcilo Agro e il Duo Maravilha",
@@ -55,6 +60,11 @@
 			"quick": true,
 			"title": "Stronzoli nel culo (Benigni)",
 			"url": "https://www.youtube.com/watch?v=HukL-nhfL9E"
+		},
+		"taci": {
+			"quick": true,
+			"title": "Taci (Sgarbi)",
+			"url": "https://www.youtube.com/watch?v=AmFt4z2pSJQ"
 		}
 	}
 }
