@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "jspm install",
     "sort-json": "sort-json",
     "fix": "scripts/sort-json.sh && jscs -x ./*.js assets/js",
     "validate": "jsonlint data/*.json --quiet && eslint ./*.js assets/js",
