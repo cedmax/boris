@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
+import style from 'js/style';
 import props from 'js/props';
 
 export default class Home extends React.Component {
@@ -15,14 +16,9 @@ export default class Home extends React.Component {
       <Card
         onClick={ ()=>this.props.navigateTo( category ) }
         key={ category }
-        style={{
-          'position': 'relative',
-          'marginBottom': '1%',
-          'cursor': 'pointer',
-          'height': '32%',
-          'background': `url(/img/${category}.jpg) no-repeat center / cover`,
-          'width': '49.50%'
-        }}
+        style={ Object.assign({}, style.pages.home.card, {
+          'background': `url(/img/${category}.jpg) no-repeat center / cover`
+        }) }
       >
         <a
           href={ `/${category}` }
@@ -44,7 +40,6 @@ export default class Home extends React.Component {
     );
   }
 
-
   render() {
     const {
       categories
@@ -55,17 +50,7 @@ export default class Home extends React.Component {
 
     return (
       <div
-        style={{
-          'position': 'absolute',
-          'right': '1%',
-          'left': '1%',
-          'top': 'calc(1% + 70px)',
-          'bottom': '1%',
-          'display': 'flex',
-          'flexWrap': 'wrap',
-          'flexDirection': 'row',
-          'justifyContent': 'space-between'
-        }}
+        style={ style.pages.home.cardContainer }
       >
         { this.card( this.props.data.r, 'r' ) }
         { cards }

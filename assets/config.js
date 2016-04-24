@@ -20,6 +20,7 @@ System.config({
     "clipboard": "npm:clipboard@1.5.9",
     "core-js": "npm:core-js@1.2.6",
     "fbjs": "npm:fbjs@0.2.1",
+    "inline-style-prefix-all": "npm:inline-style-prefix-all@1.0.5",
     "jsx": "github:floatdrop/plugin-jsx@1.2.1",
     "material-ui": "npm:material-ui@0.15.0-alpha.2",
     "react": "npm:react@0.14.7",

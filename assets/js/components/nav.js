@@ -8,6 +8,7 @@ import Dialog from 'material-ui/lib/dialog';
 import Menu from 'js/components/menu';
 import SubmitDialog from 'js/components/submit-dialog';
 import FlatButton from 'material-ui/lib/flat-button';
+import style from 'js/style';
 
 export default class Nav extends React.Component {
   constructor( props ) {
@@ -45,38 +46,24 @@ export default class Nav extends React.Component {
   }
 
   render() {
-    const menuStyle = {
-      button: {
-        'padding': '5px 0',
-        'minWidth': 'auto'
-      },
-      icon: '#fff',
-      label: {
-        'color': '#fff',
-        'display': 'block',
-        'fontSize': '70%',
-        'lineHeight': 1.5
-      }
-    };
-
     const dialogIcons = (
       <div>
         <FlatButton
-          style={ menuStyle.button }
+          style={ style.nav.button }
           onClick={ this.handleOpenSubmitDialog }
           label="Add"
-          labelStyle={ menuStyle.label} >
+          labelStyle={ style.nav.label } >
           <ControlPointIcon
-            color={ menuStyle.icon}
+            color="#fff"
           />
         </FlatButton>
         <FlatButton
-          style={ menuStyle.button }
+          style={ style.nav.button }
           onClick={ this.handleOpenDialog }
           label="About"
-          labelStyle={ menuStyle.label } >
+          labelStyle={ style.nav.label } >
           <HelpOutlineIcon
-            color={ menuStyle.icon}
+            color="#fff"
           />
         </FlatButton>
       </div>
@@ -84,13 +71,13 @@ export default class Nav extends React.Component {
 
     const menuIcon = (
       <FlatButton
-        style={ menuStyle.button }
-        labelStyle={ menuStyle.label }
+        style={ style.nav.button }
+        labelStyle={ style.nav.label }
         label="Menu"
         onClick={ this.handleToggleMenu }
       >
         <MenuIcon
-          color={ menuStyle.icon }
+          color="#fff"
         />
       </FlatButton>
     );

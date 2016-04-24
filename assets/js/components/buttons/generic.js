@@ -1,15 +1,13 @@
 import React from 'react';
 import IconButton from 'material-ui/lib/icon-button';
+import style from 'js/style';
 
 export default class Button extends React.Component {
   render() {
     return (
       <IconButton
         onClick={ this.props.onClick }
-        style={{
-          'verticalAlign': 'middle',
-          'display': 'inline-block'
-        }}
+        style={ style.buttons }
         tooltip={ this.props.tooltip }
       >
         { this.props.icon }

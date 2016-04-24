@@ -8,6 +8,7 @@ import Button from 'js/components/buttons/generic';
 import Link from 'js/components/link';
 import Video from 'js/components/video';
 import VideoIcon from 'material-ui/lib/svg-icons/av/videocam';
+import style from 'js/style';
 import props from 'js/props';
 
 function forceGif( props ) {
@@ -55,14 +56,6 @@ export default class MediaCard extends React.Component {
       return ( <div /> );
     }
 
-    let styles = {
-      'position': 'absolute',
-      'top': 'calc(25% + 200px)',
-      'left': '50%',
-      'transform': 'translate3D(-50%,-50%,0)',
-      'width': '80vmin'
-    };
-
     let alternateButton;
     let media = ( <Video videoUrl={url} /> );
 
@@ -96,10 +89,7 @@ export default class MediaCard extends React.Component {
 
     let subtitle = (
       <div
-        style={{
-          'display': 'flex',
-          'alignItems': 'center'
-        }}
+        style={ style.mediaCard.subtitle }
       >
         {alternateButton}
 
@@ -115,7 +105,7 @@ export default class MediaCard extends React.Component {
 
     return (
       <Card
-        style={ styles }
+        style={ style.mediaCard.container }
       >
         <CardMedia>
           { media }

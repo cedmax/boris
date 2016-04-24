@@ -1,4 +1,5 @@
 import React from 'react';
+import style from 'js/style';
 
 export default class Link extends React.Component {
   render() {
@@ -6,19 +7,9 @@ export default class Link extends React.Component {
       url
     } = this.props;
 
-    const style = {
-      'fontFamily': 'monospace',
-      'display': 'inline-block',
-      'width': '80%',
-      'whiteSpace': 'nowrap',
-      'overflow': 'hidden',
-      'textOverflow': 'ellipsis',
-      'verticalAlign': 'middle'
-    };
-
     return (
       <a
-        style={ style }
+        style={ style.link.main }
         href={ url }
         target="_blank"
       >

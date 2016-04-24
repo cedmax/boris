@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoComplete from 'material-ui/lib/auto-complete';
 import props from 'js/props';
+import style from 'js/style';
 
 export default class BorisAutoComplete extends React.Component {
   constructor ( props ) {
@@ -75,14 +76,9 @@ export default class BorisAutoComplete extends React.Component {
       };
     }
 
-
     return (
       <div
-        style={{
-          'minWidth': '250px',
-          'width': '40%',
-          'margin': 'auto'
-        }}
+        style={ style.autocomplete.container }
       >
         <AutoComplete
           onFocus={ this.onFocus.bind( this ) }

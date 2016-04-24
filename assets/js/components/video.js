@@ -1,4 +1,5 @@
 import React from 'react';
+import style from 'js/style';
 
 export default class VideoCard extends React.Component {
   render() {
@@ -11,22 +12,10 @@ export default class VideoCard extends React.Component {
 
     return (
       <div
-        style={{
-          'position': 'relative',
-          'paddingBottom': '56.25%',
-          'paddingTop': '25px',
-          'height': '0'
-        }}
+        style={ style.video.container }
       >
         <iframe
-          style={{
-            'border': '0',
-            'position': 'absolute',
-            'top': '0',
-            'left': '0',
-            'width': '100%',
-            'height': '100%'
-          }}
+          style={ style.video.videoItem }
           src={ `https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&rel=0` }
           allowFullScreen="allowFullScreen"
         ></iframe>
