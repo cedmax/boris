@@ -16,6 +16,7 @@ app.set( 'views', __dirname + '/views' );
 app.enable( 'view cache' );
 app.engine( 'html', require( 'hogan-express' ));
 app.use( express.static( __dirname + '/assets' ));
+
 //data handling
 var settings = require( './settings.json' );
 var data = mapData( './data', {
