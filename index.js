@@ -39,9 +39,12 @@ jspm.import( 'js/app' ).then( function( App ) {
     } else {
       const domain = req.protocol + '://' + req.get( 'host' );
       let sectionUrl = section;
+
       if ( data[ section ] && data[ section ].videos[ selected ] ) {
-        sectionUrl = data[ section ].videos[ selected ].category;
+        sectionUrl = data[ section ].videos[ selected ].category || sectionUrl;
       }
+
+      console.log(sectionUrl)
       const url = `${domain}/${sectionUrl}` + ( selected ? `/${selected}` : '' );
 
       Object.assign( res.locals, {
