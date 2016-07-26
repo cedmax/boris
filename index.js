@@ -44,7 +44,6 @@ jspm.import( 'js/app' ).then( function( App ) {
         sectionUrl = data[ section ].videos[ selected ].category || sectionUrl;
       }
 
-      console.log(sectionUrl)
       const url = `${domain}/${sectionUrl}` + ( selected ? `/${selected}` : '' );
 
       Object.assign( res.locals, {
