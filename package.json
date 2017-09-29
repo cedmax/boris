@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.13.3",
+    "express": "4.16.0",
     "express-autoprefixer": "4.0.3",
     "get-youtube-id": "^1.0.0",
     "hogan-express": "0.5.2",
